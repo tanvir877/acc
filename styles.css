@@ -240,6 +240,7 @@ p {
 .nav-buttons {
     display: flex;
     align-items: center;
+    gap: 2;
 }
 
 .search-btn {
