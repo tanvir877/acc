@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Adamjee Cantonment College</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 0 var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: 0;
+            z-index: 1;
+        }
+        
+        .timeline-item.left {
+            left: 0;
+        }
+        
+        .timeline-item.right {
+            left: 50%;
+        }
+        
+        .timeline-item.left::after {
+            right: -10px;
+        }
+        
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background-color: var(--text-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-year {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background-color: var(--secondary);
+            color: var(--text-light);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .timeline-title {
+            margin-bottom: var(--spacing-sm);
+            color: var(--secondary);
+        }
+        
+        .timeline-text {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .stat-card {
+            background-color: var(--text-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(193, 39, 45, 0.1);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+        }
+        
+        .stat-icon i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .team-card {
+            background-color: var(--text-light);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .team-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .team-position {
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .team-social a {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(193, 39, 45, 0.1);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background-color: var(--primary);
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item.right {
+                left: 0;
+            }
+            
+            .timeline-item.left::after, .timeline-item.right::after {
+                left: 21px;
+            }
+            
+            .stats-grid, .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Adamjee Cantonment College" class="logo">
+                <div class="college-name">
+                    <h1>Adamjee Cantonment College</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="campus-life.html">Campus Life</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="container">
+            <button class="close-menu-btn"><i class="fas fa-times"></i></button>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="campus-life.html">Campus Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="apply-btn mobile-apply">Apply Now</button>
+        </div>
+    </div>
+
+    <!-- Notice Section -->
+    <section class="notice-section">
+        <div class="container">
+            <div class="notice-header">
+                <i class="fas fa-bell"></i>
+                <h3>Important Notices</h3>
+            </div>
+            <div class="notice-carousel">
+                <div class="notice-container">
+                    <div class="notice active">
+                        <div class="notice-content">
+                            <div class="notice-badge important">Admission</div>
+                            <h4>Admission Open for Fall 2025 Semester</h4>
+                            <p class="notice-date">Published: March 25, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-content">
+                            <div class="notice-badge important">Scholarship</div>
+                            <h4>Scholarship Applications Due April 15</h4>
+                            <p class="notice-date">Published: March 20, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-content">
+                            <div class="notice-badge">Academic</div>
+                            <h4>Campus Closed for Spring Break (April 5-12)</h4>
+                            <p class="notice-date">Published: March 18, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="notice-controls">
+                    <button class="notice-prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="notice-indicators">
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <button class="notice-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">About Us</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="current">About</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="page-section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2 class="section-title">Our Story</h2>
+                    <p>Adamjee Cantonment College was established in 1965 with a vision to provide quality education to the students of Bangladesh. Over the years, we have grown into one of the premier educational institutions in the country, known for our academic excellence and commitment to holistic development.</p>
+                    <p>Our institution is built on the foundation of strong values, innovative teaching methodologies, and a supportive learning environment. We believe in nurturing not just academic brilliance but also character, creativity, and leadership skills in our students.</p>
+                    <p>Today, Adamjee Cantonment College stands as a symbol of educational excellence, producing graduates who go on to make significant contributions in various fields both nationally and internationally.</p>
+                    <button class="outline-btn">Learn More About Our Legacy</button>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/600x400" alt="College Building" class="card-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">Mission & Vision</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Our Mission</h3>
+                        <p class="card-text">To provide quality education that empowers students with knowledge, skills, and values necessary to excel in their chosen fields and contribute meaningfully to society. We are committed to creating a learning environment that fosters critical thinking, creativity, and ethical leadership.</p>
+                        <p class="card-text">We strive to make education accessible to all deserving students regardless of their socio-economic background and to promote research and innovation that addresses real-world challenges.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Our Vision</h3>
+                        <p class="card-text">To be a leading educational institution recognized nationally and internationally for academic excellence, innovative teaching methodologies, and impactful research. We envision creating global citizens who are equipped with the knowledge, skills, and values to lead and transform society.</p>
+                        <p class="card-text">We aspire to be at the forefront of educational innovation, setting new standards for teaching and learning while preserving our rich cultural heritage and values.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">Our History</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1965</div>
+                        <h3 class="timeline-title">Foundation</h3>
+                        <p class="timeline-text">Adamjee Cantonment College was established with a small campus and limited programs, focusing primarily on providing quality education to the local community.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1975</div>
+                        <h3 class="timeline-title">Expansion</h3>
+                        <p class="timeline-text">The college expanded its campus and introduced new academic programs to meet the growing demand for quality education in various fields.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1985</div>
+                        <h3 class="timeline-title">Recognition</h3>
+                        <p class="timeline-text">The college received national recognition for its academic excellence and contribution to the education sector in Bangladesh.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1995</div>
+                        <h3 class="timeline-title">Modernization</h3>
+                        <p class="timeline-text">The college underwent significant modernization, upgrading its infrastructure, laboratories, and teaching methodologies to keep pace with global standards.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2005</div>
+                        <h3 class="timeline-title">Digital Transformation</h3>
+                        <p class="timeline-text">The college embraced digital technology, integrating it into its teaching and administrative processes to enhance efficiency and effectiveness.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3 class="timeline-title">Golden Jubilee</h3>
+                        <p class="timeline-text">The college celebrated its 50th anniversary, marking half a century of excellence in education and service to the nation.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3 class="timeline-title">Future Vision</h3>
+                        <p class="timeline-text">The college continues to evolve, with plans for further expansion, international collaborations, and innovative programs to prepare students for the challenges of the 21st century.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">College at a Glance</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Faculty Members</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Programs Offered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Awards & Recognitions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">Our Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/300x400" alt="Principal" class="team-img">
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Robert Johnson</h3>
+                        <p class="team-position">Principal</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/300x400" alt="Vice Principal" class="team-img">
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Sarah Ahmed</h3>
+                        <p class="team-position">Vice Principal</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/300x400" alt="Dean of Academics" class="team-img">
+                    <div class="team-info">
+                        <h3 class="team-name">Prof. Michael Chen</h3>
+                        <p class="team-position">Dean of Academics</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/300x400" alt="Dean of Students" class="team-img">
+                    <div class="team-info">
+                        <h3 class="team-name">Prof. Lisa Rahman</h3>
+                        <p class="team-position">Dean of Students</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Adamjee Cantonment College" class="logo-small">
+                        <span>Adamjee Cantonment College</span>
+                    </div>
+                    <p>Providing quality education and fostering innovation since 1965.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="campus-life.html">Campus Life</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Career Services</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Faculty Directory</a></li>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Campus Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p>123 College Avenue</p>
+                        <p>Dhaka Cantonment, Bangladesh</p>
+                        <p class="contact-info">Phone: (123) 456-7890</p>
+                        <p class="contact-info">Email: info@adamjee.edu</p>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Adamjee Cantonment College. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="common.js"></script>
+    <script>
+        // Page-specific animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Timeline animations
+            gsap.utils.toArray('.timeline-item').forEach(item => {
+                gsap.from(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 80%'
+                    },
+                    opacity: 0,
+                    x: item.classList.contains('left') ? -50 : 50,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Stats counter animation
+            gsap.utils.toArray('.stat-number').forEach(stat => {
+                gsap.from(stat, {
+                    scrollTrigger: {
+                        trigger: stat,
+                        start: 'top 80%',
+                        once: true
+                    },
+                    innerText: 0,
+                    duration: 2,
+                    snap: { innerText: 1 },
+                    ease: 'power2.out'
+                });
+            });
+            
+            // Team cards animation
+            gsap.from('.team-card', {
+                scrollTrigger: {
+                    trigger: '.team-grid',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 50,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+</body>
+</html>

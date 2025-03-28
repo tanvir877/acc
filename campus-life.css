@@ -1,0 +1,616 @@
+/* Campus Life Page Specific Styles */
+
+/* Campus Gallery */
+.campus-gallery {
+    margin-top: var(--spacing-md);
+}
+
+.gallery-main {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.gallery-thumbs {
+    display: flex;
+    gap: var(--spacing-sm);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: var(--spacing-sm);
+}
+
+.gallery-thumbs::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery-thumbs::-webkit-scrollbar-track {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+.gallery-thumbs::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.gallery-thumb {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-thumb.active, .gallery-thumb:hover {
+    opacity: 1;
+}
+
+/* Sports Section */
+.sports-section {
+    background-color: var(--background-light);
+}
+
+.achievements-slider {
+    position: relative;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.achievements-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-slide {
+    display: none;
+}
+
+.achievement-slide.active {
+    display: block;
+}
+
+.achievement-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--text-light);
+    overflow: hidden;
+}
+
+.achievement-image {
+    position: relative;
+    height: 300px;
+}
+
+.achievement-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.achievement-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.achievement-content {
+    padding: var(--spacing-lg);
+}
+
+.achievement-content h3 {
+    color: var(--secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.achievement-year {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.achievement-description {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.achievement-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-md);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.achievements-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
+.achievement-prev, .achievement-next {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    background-color: var(--text-light);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.achievement-prev:hover, .achievement-next:hover {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+.achievements-indicators {
+    display: flex;
+    align-items: center;
+    margin: 0 var(--spacing-md);
+}
+
+.achievements-indicators span {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--border-radius-full);
+    background-color: var(--border-color);
+    margin: 0 var(--spacing-xs);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.achievements-indicators span.active {
+    background-color: var(--primary);
+}
+
+.sports-facilities {
+    margin-top: var(--spacing-xxl);
+}
+
+.sub-title {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.facility-card {
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.facility-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.facility-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.facility-content {
+    padding: var(--spacing-md);
+}
+
+.facility-content h4 {
+    color: var(--secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.facility-content p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Clubs & Organizations */
+.clubs-tabs {
+    margin-top: var(--spacing-lg);
+}
+
+.club-card {
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.club-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.club-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(193, 39, 45, 0.1);
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.club-icon i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.club-name {
+    color: var(--secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.club-description {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.club-activities {
+    margin-bottom: var(--spacing-md);
+}
+
+.club-activities h4 {
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.club-activities ul {
+    list-style: disc;
+    padding-left: var(--spacing-lg);
+}
+
+.club-activities li {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.club-card .outline-btn {
+    margin-top: auto;
+}
+
+/* Events & Celebrations */
+.events-section {
+    background-color: var(--background-light);
+}
+
+.events-timeline {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.event-item {
+    display: flex;
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: var(--spacing-md);
+    min-width: 100px;
+}
+
+.event-date .month {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.event-date .day {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.event-content {
+    padding: var(--spacing-md);
+    flex: 1;
+}
+
+.event-title {
+    color: var(--secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.event-description {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.event-gallery {
+    display: flex;
+    gap: var(--spacing-sm);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: var(--spacing-xs);
+}
+
+.event-gallery::-webkit-scrollbar {
+    height: 6px;
+}
+
+.event-gallery::-webkit-scrollbar-track {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+.event-gallery::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.event-gallery img {
+    border-radius: var(--border-radius-sm);
+    transition: transform 0.3s ease;
+}
+
+.event-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Campus Facilities */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.facility-item {
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.facility-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.facility-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(193, 39, 45, 0.1);
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.facility-icon i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.facility-item h3 {
+    color: var(--secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.facility-item p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Student Testimonials */
+.testimonials-section {
+    background-color: var(--background-light);
+}
+
+.testimonials-slider {
+    position: relative;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.testimonials-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slide {
+    display: none;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+.testimonial-card {
+    display: flex;
+    background-color: var(--text-light);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-image {
+    padding: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--border-radius-full);
+    object-fit: cover;
+    border: 3px solid var(--primary);
+}
+
+.testimonial-content {
+    padding: var(--spacing-lg);
+    flex: 1;
+}
+
+.testimonial-text {
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+}
+
+.testimonial-text::before {
+    content: '\201C';
+    font-size: 3rem;
+    color: rgba(193, 39, 45, 0.1);
+    position: absolute;
+    top: -20px;
+    left: -10px;
+}
+
+.testimonial-name {
+    color: var(--secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.testimonial-info {
+    color: var(--primary);
+    font-size: 0.875rem;
+}
+
+.testimonials-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
+.testimonial-prev, .testimonial-next {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    background-color: var(--text-light);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.testimonial-prev:hover, .testimonial-next:hover {
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
+.testimonials-indicators {
+    display: flex;
+    align-items: center;
+    margin: 0 var(--spacing-md);
+}
+
+.testimonials-indicators span {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--border-radius-full);
+    background-color: var(--border-color);
+    margin: 0 var(--spacing-xs);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.testimonials-indicators span.active {
+    background-color: var(--primary);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .event-item {
+        flex-direction: column;
+    }
+    
+    .event-date {
+        flex-direction: row;
+        padding: var(--spacing-sm);
+        min-width: auto;
+    }
+    
+    .event-date .month {
+        margin-right: var(--spacing-xs);
+    }
+    
+    .testimonial-card {
+        flex-direction: column;
+    }
+    
+    .testimonial-image {
+        padding-bottom: 0;
+    }
+    
+    .facilities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .achievement-stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Adamjee Cantonment College</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .program-tabs {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: var(--spacing-lg);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        
+        .tabs-header::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tab-btn {
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: none;
+            border: none;
+            font-weight: 500;
+            color: var(--text-dark);
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .program-card {
+            background-color: var(--text-light);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: var(--spacing-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-header {
+            background-color: var(--secondary);
+            color: var(--text-light);
+            padding: var(--spacing-md) var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .program-title {
+            margin-bottom: 0;
+            font-size: 1.25rem;
+        }
+        
+        .program-badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background-color: var(--primary);
+            color: var(--text-light);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .program-body {
+            padding: var(--spacing-lg);
+        }
+        
+        .program-details {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .program-detail {
+            display: flex;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .program-detail-label {
+            width: 120px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .program-detail-value {
+            flex: 1;
+            color: var(--text-muted);
+        }
+        
+        .program-description {
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .program-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: var(--spacing-md);
+        }
+        
+        .program-cta {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .faculty-card {
+            display: flex;
+            background-color: var(--text-light);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: var(--spacing-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faculty-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .faculty-info {
+            padding: var(--spacing-md);
+            flex: 1;
+        }
+        
+        .faculty-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .faculty-position {
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .faculty-bio {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .faculty-contact {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.875rem;
+        }
+        
+        .faculty-contact a {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .faculty-contact i {
+            margin-right: var(--spacing-xs);
+        }
+        
+        .accordion {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            background-color: var(--text-light);
+            padding: var(--spacing-md) var(--spacing-lg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0;
+        }
+        
+        .accordion-icon {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .accordion-item.active .accordion-content {
+            padding: var(--spacing-lg);
+            max-height: 500px;
+        }
+        
+        .accordion-text {
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 768px) {
+            .faculty-card {
+                flex-direction: column;
+            }
+            
+            .faculty-img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Adamjee Cantonment College" class="logo">
+                <div class="college-name">
+                    <h1>Adamjee Cantonment College</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="academics.html" class="active">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="campus-life.html">Campus Life</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="container">
+            <button class="close-menu-btn"><i class="fas fa-times"></i></button>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="campus-life.html">Campus Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="apply-btn mobile-apply">Apply Now</button>
+        </div>
+    </div>
+
+    <!-- Notice Section -->
+    <section class="notice-section">
+        <div class="container">
+            <div class="notice-header">
+                <i class="fas fa-bell"></i>
+                <h3>Important Notices</h3>
+            </div>
+            <div class="notice-carousel">
+                <div class="notice-container">
+                    <div class="notice active">
+                        <div class="notice-content">
+                            <div class="notice-badge important">Admission</div>
+                            <h4>Admission Open for Fall 2025 Semester</h4>
+                            <p class="notice-date">Published: March 25, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-content">
+                            <div class="notice-badge important">Scholarship</div>
+                            <h4>Scholarship Applications Due April 15</h4>
+                            <p class="notice-date">Published: March 20, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-content">
+                            <div class="notice-badge">Academic</div>
+                            <h4>Campus Closed for Spring Break (April 5-12)</h4>
+                            <p class="notice-date">Published: March 18, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="notice-controls">
+                    <button class="notice-prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="notice-indicators">
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <button class="notice-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Academics</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="current">Academics</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Overview Section -->
+    <section class="page-section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2 class="section-title">Academic Excellence</h2>
+                    <p>At Adamjee Cantonment College, we are committed to providing a comprehensive and rigorous academic experience that prepares students for success in their future endeavors. Our academic programs are designed to foster critical thinking, creativity, and a deep understanding of the subject matter.</p>
+                    <p>We offer a wide range of programs across various disciplines, taught by experienced faculty members who are experts in their fields. Our teaching methodology combines traditional classroom learning with innovative approaches, ensuring that students receive a well-rounded education.</p>
+                    <p>We maintain small class sizes to ensure personalized attention and create an environment where students can actively participate in discussions and engage with the material. Our academic programs are regularly updated to reflect the latest developments in the field and meet the evolving needs of the job market.</p>
+                    <button class="outline-btn">Download Academic Calendar</button>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/600x400" alt="Academic Excellence" class="card-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">Our Programs</h2>
+            <div class="program-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="undergraduate">Undergraduate</button>
+                    <button class="tab-btn" data-tab="graduate">Graduate</button>
+                    <button class="tab-btn" data-tab="diploma">Diploma</button>
+                    <button class="tab-btn" data-tab="certificate">Certificate</button>
+                </div>
+                <div class="tab-pane active" id="undergraduate">
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">Bachelor of Science in Computer Science</h3>
+                            <div class="program-badge">4 Years</div>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Department</div>
+                                    <div class="program-detail-value">Computer Science & Engineering</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Credits</div>
+                                    <div class="program-detail-value">140</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Intake</div>
+                                    <div class="program-detail-value">Fall, Spring</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Eligibility</div>
+                                    <div class="program-detail-value">HSC/A-Level with minimum GPA 4.0</div>
+                                </div>
+                            </div>
+                            <p class="program-description">The Bachelor of Science in Computer Science program provides students with a strong foundation in computer science principles and practices. Students learn programming, algorithms, data structures, software engineering, artificial intelligence, and more. The program includes practical projects and internships to prepare students for careers in the tech industry.</p>
+                            <div class="program-footer">
+                                <div class="program-cta">
+                                    <button class="outline-btn small">View Curriculum</button>
+                                    <button class="primary-btn small">Apply Now</button>
+                                </div>
+                                <a href="#" class="read-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">Bachelor of Business Administration</h3>
+                            <div class="program-badge">4 Years</div>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Department</div>
+                                    <div class="program-detail-value">Business Administration</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Credits</div>
+                                    <div class="program-detail-value">126</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Intake</div>
+                                    <div class="program-detail-value">Fall, Spring</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Eligibility</div>
+                                    <div class="program-detail-value">HSC/A-Level with minimum GPA 3.5</div>
+                                </div>
+                            </div>
+                            <p class="program-description">The Bachelor of Business Administration program equips students with the knowledge and skills needed to succeed in the business world. The curriculum covers areas such as management, marketing, finance, accounting, and entrepreneurship. Students also develop leadership, communication, and problem-solving skills through case studies and practical projects.</p>
+                            <div class="program-footer">
+                                <div class="program-cta">
+                                    <button class="outline-btn small">View Curriculum</button>
+                                    <button class="primary-btn small">Apply Now</button>
+                                </div>
+                                <a href="#" class="read-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">Bachelor of Science in Electrical Engineering</h3>
+                            <div class="program-badge">4 Years</div>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Department</div>
+                                    <div class="program-detail-value">Electrical & Electronic Engineering</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Credits</div>
+                                    <div class="program-detail-value">145</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Intake</div>
+                                    <div class="program-detail-value">Fall</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Eligibility</div>
+                                    <div class="program-detail-value">HSC/A-Level with minimum GPA 4.0</div>
+                                </div>
+                            </div>
+                            <p class="program-description">The Bachelor of Science in Electrical Engineering program focuses on the study of electricity, electronics, and electromagnetism. Students learn about circuit design, power systems, control systems, telecommunications, and more. The program includes laboratory work and design projects to develop practical skills and prepare students for careers in various industries.</p>
+                            <div class="program-footer">
+                                <div class="program-cta">
+                                    <button class="outline-btn small">View Curriculum</button>
+                                    <button class="primary-btn small">Apply Now</button>
+                                </div>
+                                <a href="#" class="read-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="graduate">
+                    <!-- Graduate programs content -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">Master of Science in Computer Science</h3>
+                            <div class="program-badge">2 Years</div>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Department</div>
+                                    <div class="program-detail-value">Computer Science & Engineering</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Credits</div>
+                                    <div class="program-detail-value">36</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Intake</div>
+                                    <div class="program-detail-value">Fall, Spring</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Eligibility</div>
+                                    <div class="program-detail-value">Bachelor's degree in related field with minimum CGPA 3.0</div>
+                                </div>
+                            </div>
+                            <p class="program-description">The Master of Science in Computer Science program is designed for students who want to deepen their knowledge and skills in computer science. The program offers specializations in areas such as artificial intelligence, data science, cybersecurity, and software engineering. Students complete coursework and a thesis or project to demonstrate their expertise.</p>
+                            <div class="program-footer">
+                                <div class="program-cta">
+                                    <button class="outline-btn small">View Curriculum</button>
+                                    <button class="primary-btn small">Apply Now</button>
+                                </div>
+                                <a href="#" class="read-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="diploma">
+                    <!-- Diploma programs content -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">Diploma in Information Technology</h3>
+                            <div class="program-badge">2 Years</div>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Department</div>
+                                    <div class="program-detail-value">Computer Science & Engineering</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Credits</div>
+                                    <div class="program-detail-value">60</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Intake</div>
+                                    <div class="program-detail-value">Fall, Spring, Summer</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Eligibility</div>
+                                    <div class="program-detail-value">SSC/O-Level with minimum GPA 3.0</div>
+                                </div>
+                            </div>
+                            <p class="program-description">The Diploma in Information Technology program provides students with practical skills in IT. The curriculum covers programming, web development, database management, networking, and more. The program is designed to prepare students for entry-level IT positions or for further study in a related field.</p>
+                            <div class="program-footer">
+                                <div class="program-cta">
+                                    <button class="outline-btn small">View Curriculum</button>
+                                    <button class="primary-btn small">Apply Now</button>
+                                </div>
+                                <a href="#" class="read-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="certificate">
+                    <!-- Certificate programs content -->
+                    <div class="program-card">
+                        <div class="program-header">
+                            <h3 class="program-title">Certificate in Web Development</h3>
+                            <div class="program-badge">6 Months</div>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-details">
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Department</div>
+                                    <div class="program-detail-value">Computer Science & Engineering</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Credits</div>
+                                    <div class="program-detail-value">15</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Intake</div>
+                                    <div class="program-detail-value">Monthly</div>
+                                </div>
+                                <div class="program-detail">
+                                    <div class="program-detail-label">Eligibility</div>
+                                    <div class="program-detail-value">HSC/A-Level or equivalent</div>
+                                </div>
+                            </div>
+                            <p class="program-description">The Certificate in Web Development program teaches students the skills needed to create modern websites and web applications. Students learn HTML, CSS, JavaScript, and popular frameworks like React and Node.js. The program includes hands-on projects to build a portfolio and prepare for a career in web development.</p>
+                            <div class="program-footer">
+                                <div class="program-cta">
+                                    <button class="outline-btn small">View Curriculum</button>
+                                    <button class="primary-btn small">Apply Now</button>
+                                </div>
+                                <a href="#" class="read-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">Our Faculty</h2>
+            <p class="text-center">Our faculty members are experts in their fields, committed to providing quality education and mentoring students to achieve their full potential.</p>
+            <div class="faculty-card">
+                <img src="https://via.placeholder.com/120x120" alt="Dr. John Smith" class="faculty-img">
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. John Smith</h3>
+                    <p class="faculty-position">Professor, Computer Science & Engineering</p>
+                    <p class="faculty-bio">Dr. Smith has over 20 years of experience in computer science research and teaching. His areas of expertise include artificial intelligence, machine learning, and data mining. He has published numerous papers in top-tier journals and conferences.</p>
+                    <div class="faculty-contact">
+                        <a href="#"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="#"><i class="fas fa-globe"></i> Website</a>
+                    </div>
+                </div>
+            </div>
+            <div class="faculty-card">
+                <img src="https://via.placeholder.com/120x120" alt="Dr. Sarah Johnson" class="faculty-img">
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. Sarah Johnson</h3>
+                    <p class="faculty-position">Associate Professor, Business Administration</p>
+                    <p class="faculty-bio">Dr. Johnson specializes in marketing and consumer behavior. She has worked with several multinational companies as a consultant and brings real-world experience to the classroom. Her research focuses on digital marketing strategies and consumer psychology.</p>
+                    <div class="faculty-contact">
+                        <a href="#"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="#"><i class="fas fa-globe"></i> Website</a>
+                    </div>
+                </div>
+            </div>
+            <div class="faculty-card">
+                <img src="https://via.placeholder.com/120x120" alt="Dr. Ahmed Khan" class="faculty-img">
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. Ahmed Khan</h3>
+                    <p class="faculty-position">Professor, Electrical & Electronic Engineering</p>
+                    <p class="faculty-bio">Dr. Khan is an expert in power systems and renewable energy. He has led several research projects on smart grid technology and energy efficiency. He is passionate about teaching and mentoring students to become innovative engineers.</p>
+                    <div class="faculty-contact">
+                        <a href="#"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="#"><i class="fas fa-globe"></i> Website</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="outline-btn">View All Faculty</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Resources Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">Academic Resources</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250" alt="Library" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Library</h3>
+                        <p class="card-text">Our library houses a vast collection of books, journals, and digital resources to support academic research and learning. Students have access to quiet study spaces, group discussion rooms, and computer labs.</p>
+                        <button class="outline-btn small">Learn More</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250" alt="Laboratories" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Laboratories</h3>
+                        <p class="card-text">Our state-of-the-art laboratories provide hands-on learning experiences for students in science, engineering, and technology programs. The labs are equipped with modern tools and equipment for experiments and research.</p>
+                        <button class="outline-btn small">Learn More</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x250" alt="Learning Management System" class="card-img">
+                    <div class="card-body">
+                        <h3 class="card-title">Learning Management System</h3>
+                        <p class="card-text">Our online learning management system provides students with access to course materials, assignments, and communication tools. It facilitates blended learning and enables students to learn at their own pace.</p>
+                        <button class="outline-btn small">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">What is the academic calendar for the current year?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">The academic calendar for the current year is available on our website. It includes important dates such as semester start and end dates, registration periods, examination schedules, and holidays. You can download the calendar from the Academic Affairs section of our website.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">How can I register for courses?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">Course registration is done online through the Student Portal. You will receive a notification when the registration period opens. You can log in to your account, view the available courses, and select the ones you want to take. If you need assistance, you can contact your academic advisor or the Registrar's Office.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">What support services are available for students?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">We offer a range of support services to help students succeed academically and personally. These include academic advising, tutoring, counseling, career services, and disability support. You can learn more about these services on our website or by visiting the Student Services Center on campus.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">How can I apply for scholarships?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">Scholarship applications are typically open at the beginning of each academic year. You can apply online through the Student Portal. The application process involves submitting your academic records, a personal statement, and sometimes letters of recommendation. Scholarships are awarded based on academic merit, financial need, or a combination of both.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">Can I transfer credits from another institution?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p class="accordion-text">Yes, you can transfer credits from another accredited institution. The transfer process involves submitting your official transcripts and course descriptions to the Registrar's Office. Each course is evaluated to determine if it meets our requirements for transfer credit. The number of credits that can be transferred depends on the program you are enrolled in.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Adamjee Cantonment College" class="logo-small">
+                        <span>Adamjee Cantonment College</span>
+                    </div>
+                    <p>Providing quality education and fostering innovation since 1965.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="campus-life.html">Campus Life</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Career Services</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Faculty Directory</a></li>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Campus Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p>123 College Avenue</p>
+                        <p>Dhaka Cantonment, Bangladesh</p>
+                        <p class="contact-info">Phone: (123) 456-7890</p>
+                        <p class="contact-info">Email: info@adamjee.edu</p>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Adamjee Cantonment College. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="common.js"></script>
+    <script>
+        // Page-specific scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Program tabs
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Accordion
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                
+                header.addEventListener('click', function() {
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Program cards animation
+            gsap.from('.program-card', {
+                scrollTrigger: {
+                    trigger: '.program-tabs',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 30,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+            
+            // Faculty cards animation
+            gsap.from('.faculty-card', {
+                scrollTrigger: {
+                    trigger: '.faculty-card',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 30,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+            
+            // Resources cards animation
+            gsap.from('.card', {
+                scrollTrigger: {
+                    trigger: '.grid-3',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 30,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Adamjee Cantonment College</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--spacing-xl);
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--border-color);
+            z-index: 0;
+        }
+        
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            width: 20%;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--text-light);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step.active .step-number {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--text-light);
+        }
+        
+        .step-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .step-description {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        .requirements-list {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .requirement-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .requirement-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(193, 39, 45, 0.1);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-md);
+            flex-shrink: 0;
+        }
+        
+        .requirement-icon i {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+        
+        .requirement-content h3 {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .requirement-content p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .fee-table th, .fee-table td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .fee-table th {
+            background-color: var(--background-light);
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .fee-table td {
+            color: var(--text-muted);
+        }
+        
+        .fee-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .fee-table .fee-amount {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .scholarship-card {
+            background-color: var(--text-light);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: var(--spacing-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .scholarship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scholarship-header {
+            background-color: var(--secondary);
+            color: var(--text-light);
+            padding: var(--spacing-md) var(--spacing-lg);
+        }
+        
+        .scholarship-title {
+            margin-bottom: 0;
+            font-size: 1.25rem;
+        }
+        
+        .scholarship-body {
+            padding: var(--spacing-lg);
+        }
+        
+        .scholarship-details {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .scholarship-detail {
+            display: flex;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .scholarship-detail-label {
+            width: 120px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .scholarship-detail-value {
+            flex: 1;
+            color: var(--text-muted);
+        }
+        
+        .scholarship-description {
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .scholarship-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: var(--spacing-md);
+        }
+        
+        .application-form {
+            background-color: var(--text-light);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-xl);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right var(--spacing-md) center;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-textarea {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 150px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .form-check-input {
+            margin-right: var(--spacing-sm);
+        }
+        
+        .form-check-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        .form-note {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: var(--spacing-xs);
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        @media (max-width: 768px) {
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .process-step {
+                width: 100%;
+                margin-bottom: var(--spacing-lg);
+            }
+            
+            .form-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Adamjee Cantonment College" class="logo">
+                <div class="college-name">
+                    <h1>Adamjee Cantonment College</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html" class="active">Admissions</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="campus-life.html">Campus Life</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="container">
+            <button class="close-menu-btn"><i class="fas fa-times"></i></button>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="campus-life.html">Campus Life</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="apply-btn mobile-apply">Apply Now</button>
+        </div>
+    </div>
+
+    <!-- Notice Section -->
+    <section class="notice-section">
+        <div class="container">
+            <div class="notice-header">
+                <i class="fas fa-bell"></i>
+                <h3>Important Notices</h3>
+            </div>
+            <div class="notice-carousel">
+                <div class="notice-container">
+                    <div class="notice active">
+                        <div class="notice-content">
+                            <div class="notice-badge important">Admission</div>
+                            <h4>Admission Open for Fall 2025 Semester</h4>
+                            <p class="notice-date">Published: March 25, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-content">
+                            <div class="notice-badge important">Scholarship</div>
+                            <h4>Scholarship Applications Due April 15</h4>
+                            <p class="notice-date">Published: March 20, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-content">
+                            <div class="notice-badge">Academic</div>
+                            <h4>Campus Closed for Spring Break (April 5-12)</h4>
+                            <p class="notice-date">Published: March 18, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="notice-controls">
+                    <button class="notice-prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="notice-indicators">
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <button class="notice-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Admissions</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="current">Admissions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Overview Section -->
+    <section class="page-section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2 class="section-title">Join Our Community</h2>
+                    <p>Welcome to the Adamjee Cantonment College admissions page. We are delighted that you are considering joining our vibrant academic community. Our admissions process is designed to identify students who demonstrate academic potential, intellectual curiosity, and a commitment to personal growth.</p>
+                    <p>We believe in providing equal opportunities to all deserving students and strive to make our admissions process transparent and accessible. Our diverse student body enriches the learning experience and prepares students for success in a global society.</p>
+                    <p>We encourage you to explore our programs, visit our campus, and connect with our admissions team to learn more about the opportunities available at Adamjee Cantonment College.</p>
+                    <div class="grid-2" style="gap: var(--spacing-md);">
+                        <button class="primary-btn">Apply Now</button>
+                        <button class="outline-btn">Download Prospectus</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/600x400" alt="Students on Campus" class="card-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Process Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">Admission Process</h2>
+            <p class="text-center">Our admission process is straightforward and designed to help us identify students who will thrive in our academic environment.</p>
+            <div class="process-steps">
+                <div class="process-step active">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Submit Application</h3>
+                    <p class="step-description">Complete the online application form and pay the application fee.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Document Verification</h3>
+                    <p class="step-description">Submit required documents for verification.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Entrance Exam</h3>
+                    <p class="step-description">Take the entrance examination at the scheduled time.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Interview</h3>
+                    <p class="step-description">Attend an interview with the admissions committee.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Admission Offer</h3>
+                    <p class="step-description">Receive admission decision and complete enrollment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Requirements Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title">Admission Requirements</h2>
+            <p>To be considered for admission to Adamjee Cantonment College, applicants must meet the following requirements:</p>
+            <div class="requirements-list">
+                <div class="requirement-item">
+                    <div class="requirement-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="requirement-content">
+                        <h3>Academic Qualifications</h3>
+                        <p>For undergraduate programs, applicants must have completed HSC/A-Level or equivalent with a minimum GPA of 3.5. For graduate programs, a bachelor's degree from a recognized institution with a minimum CGPA of 3.0 is required.</p>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="requirement-content">
+                        <h3>Required Documents</h3>
+                        <p>Applicants must submit the following documents:</p>
+                        <ul>
+                            <li>Completed application form</li>
+                            <li>Academic transcripts and certificates</li>
+                            <li>Passport-sized photographs</li>
+                            <li>Copy of national ID card or passport</li>
+                            <li>Letter of recommendation (for graduate programs)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon">
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <div class="requirement-content">
+                        <h3>Entrance Examination</h3>
+                        <p>All applicants are required to take an entrance examination that tests their knowledge in relevant subjects. The examination is designed to assess the applicant's aptitude and readiness for the chosen program.</p>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="requirement-content">
+                        <h3>Interview</h3>
+                        <p>Shortlisted applicants will be invited for an interview with the admissions committee. The interview is an opportunity for the committee to assess the applicant's motivation, communication skills, and fit for the program.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tuition & Fees Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title">Tuition & Fees</h2>
+            <p>Adamjee Cantonment College is committed to providing quality education at an affordable cost. The following table outlines the tuition and fees for the 2025-2026 academic year:</p>
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Program</th>
+                        <th>Tuition (per semester)</th>
+                        <th>Registration Fee</th>
+                        <th>Other Fees</th>
+                        <th>Total (first semester)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bachelor of Science in Computer Science</td>
+                        <td class="fee-amount">৳ 50,000</td>
+                        <td>৳ 5,000</td>
+                        <td>৳ 10,000</td>
+                        <td class="fee-amount">৳ 65,000</td>
+                    </tr>
+                    <tr>
+                        <td>Bachelor of Business Administration</td>
+                        <td class="fee-amount">৳ 45,000</td>
+                        <td>৳ 5,000</td>
+                        <td>৳ 10,000</td>
+                        <td class="fee-amount">৳ 60,000</td>
+                    </tr>
+                    <tr>
+                        <td>Bachelor of Science in Electrical Engineering</td>
+                        <td class="fee-amount">৳ 55,000</td>
+                        <td>৳ 5,000</td>
+                        <td>৳ 12,000</td>
+                        <td class="fee-amount">৳ 72,000</td>
+                    </tr>
+                    <tr>
+                        <td>Master of Science in Computer Science</td>
+                        <td class="fee-amount">৳ 60,000</td>
+                        <td>৳ 5,000</td>
+                        <td>৳ 10,000</td>
+                        <td class="fee-amount">৳ 75,000</td>
+                    </tr>
+                    <tr>
+                        <td>Diploma in Information Technology</td>
+                        <td class="fee-amount">৳ 30,000</td>
+                        <td>৳ 3,000</td>
+                        <td>৳ 7,000</td>
+                        <td class="fee-amount">৳ 40,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="form-note">Note: Tuition and fees are subject to change. Please contact the Admissions Office for the most up-to-date information.</p>
+        </div>
+    </section>
+
+    <!-- Scholarships Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title">Scholarships & Financial Aid</h2>
+            <p>Adamjee Cantonment College is committed to making education accessible to all deserving students. We offer a range of scholarships and financial aid options to support students in their academic journey.</p>
+            <div class="scholarship-card">
+                <div class="scholarship-header">
+                    <h3 class="scholarship-title">Merit Scholarship</h3>
+                </div>
+                <div class="scholarship-body">
+                    <div class="scholarship-details">
+                        <div class="scholarship-detail">
+                            <div class="scholarship-detail-label">Award Amount</div>
+                            <div class="scholarship-detail-value">Up to 100% tuition waiver</div>
+                        </div>
+                        <div class="scholarship-detail">
+                            <div class="scholarship-detail-label">Eligibility</div>
+                            <div class="scholarship-detail-value">Students with outstanding academic performance (GPA 4.5 or above)</div>
+                        </div>
+                        <div class="scholarship-detail">
+                            <div class="scholarship-detail-label">Duration</div>
+                            <div class="scholarship-detail-value">Renewable each semester based on academic performance</div>
+                        </div>
+                    </div>
+                    <p class="scholarship-description">The Merit Scholarship is awarded to students who demonstrate exceptional academic achievement. Recipients are selected based on their academic records, entrance examination scores, and interview performance.</p>
+                    <div class="scholarship-footer">
+                        <button class="outline-btn small">Apply for Scholarship</button>
+                        <a href="#" class="read-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scholarship-card">
+                <div class="scholarship-header">
+                    <h3 class="scholarship-title">Need-Based Financial Aid</h3>
+                </div>
+                <div class="scholarship-body">
+                    <div class="scholarship-details">
+                        <div class="scholarship-detail">
+                            <div class="scholarship-detail-label">Award Amount</div>
+                            <div class="scholarship-detail-value">Up to 50% tuition waiver</div>
+                        </div>
+                        <div class="scholarship-detail">
+                            <div class="scholarship-detail-label">Eligibility</div>
+                            <div class="scholarship-detail-value">Students with demonstrated financial need</div>
+                        </div>
+                        <div class="scholarship-detail">
+                            <div class="scholarship-detail-label">Duration</div>
+                            <div class="scholarship-detail-value">Renewable each semester based on continued need and academic standing</div>
+                        </div>
+                    </div>
+                    <p class="scholarship-description">The Need-Based Financial Aid program is designed to support students who have the academic potential but lack the financial resources to pursue higher education. Applicants must submit financial documentation to demonstrate need.</p>
+                    <div class="scholarship-footer">
+                        <button class="outline-btn small">Apply for Financial Aid</button>
+                        <a href="#" class="read-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scholarship-card">
+                <div class="scholarship-header">
+                    <h3 class="scholarship-title">Sports Scholarship</h3>
+                </div>
+                <div class="scholarship-body">
+                    <div class="scholarship-details">
+                        <div class="scholarship-detail">
+                            <div class="scholarship-detail-label">Award Amount</div>
+                            <div class="scholarship-detail-value">Up to 75% tuition waiver</div>
+                        </div>
+                        <div class="scholarship-detail">
+                            <div class="scholarship-detail-label">Eligibility</div>
+                            <div class="scholarship-detail-value">Students with exceptional sports achievements at national or international level</div>
+                        </div>
+                        <div class="scholarship-detail">
+                            <div class="scholarship-detail-label">Duration</div>
+                            <div class="scholarship-detail-value">Renewable each semester based on sports performance and academic standing</div>
+                        </div>
+                    </div>
+                    <p class="scholarship-description">The Sports Scholarship is awarded to students who have demonstrated exceptional talent and achievement in sports. Recipients are expected to represent the college in sports competitions while maintaining satisfactory academic performance.</p>
+                    <div class="scholarship-footer">
+                        <button class="outline-btn small">Apply for Scholarship</button>
+                        <a href="#" class="read-more">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title centered">Apply Now</h2>
+            <p class="text-center">Complete the form below to start your application process. Fields marked with an asterisk (*) are required.</p>
+            <div class="application-form">
+                <form action="#" method="post">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="dob" class="form-label">Date of Birth *</label>
+                            <input type="date" id="dob" name="dob" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select id="gender" name="gender" class="form-select">
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="program" class="form-label">Program of Interest *</label>
+                        <select id="program" name="program" class="form-select" required>
+                            <option value="">Select Program</option>
+                            <option value="bsc-cs">Bachelor of Science in Computer Science</option>
+                            <option value="bba">Bachelor of Business Administration</option>
+                            <option value="bsc-ee">Bachelor of Science in Electrical Engineering</option>
+                            <option value="msc-cs">Master of Science in Computer Science</option>
+                            <option value="dip-it">Diploma in Information Technology</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="education" class="form-label">Highest Education Qualification *</label>
+                        <select id="education" name="education" class="form-select" required>
+                            <option value="">Select Qualification</option>
+                            <option value="ssc">SSC/O-Level</option>
+                            <option value="hsc">HSC/A-Level</option>
+                            <option value="bachelor">Bachelor's Degree</option>
+                            <option value="master">Master's Degree</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Personal Statement</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Tell us about yourself, your academic interests, and why you want to join Adamjee Cantonment College"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" id="terms" name="terms" class="form-check-input" required>
+                            <label for="terms" class="form-check-label">I agree to the terms and conditions *</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="newsletter" name="newsletter" class="form-check-input">
+                            <label for="newsletter" class="form-check-label">I would like to receive updates and newsletters</label>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="primary-btn">Submit Application</button>
+                        <button type="reset" class="outline-btn">Reset Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Adamjee Cantonment College" class="logo-small">
+                        <span>Adamjee Cantonment College</span>
+                    </div>
+                    <p>Providing quality education and fostering innovation since 1965.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="campus-life.html">Campus Life</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Career Services</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Faculty Directory</a></li>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Campus Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p>123 College Avenue</p>
+                        <p>Dhaka Cantonment, Bangladesh</p>
+                        <p class="contact-info">Phone: (123) 456-7890</p>
+                        <p class="contact-info">Email: info@adamjee.edu</p>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Adamjee Cantonment College. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="common.js"></script>
+    <script>
+        // Page-specific scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Process steps animation
+            gsap.from('.process-step', {
+                scrollTrigger: {
+                    trigger: '.process-steps',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 30,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+            
+            // Requirements animation
+            gsap.from('.requirement-item', {
+                scrollTrigger: {
+                    trigger: '.requirements-list',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                x: -30,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+            
+            // Fee table animation
+            gsap.from('.fee-table', {
+                scrollTrigger: {
+                    trigger: '.fee-table',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+            
+            // Scholarship cards animation
+            gsap.from('.scholarship-card', {
+                scrollTrigger: {
+                    trigger: '.scholarship-card',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 30,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+            
+            // Application form animation
+            gsap.from('.application-form', {
+                scrollTrigger: {
+                    trigger: '.application-form',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+</body>
+</html>

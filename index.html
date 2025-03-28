@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adamjee Cantonment College</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Adamjee Cantonment College" class="logo">
+                <div class="college-name">
+                    <h1>Adamjee Cantonment College</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="campus-life.html">Campus Life</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <div class="container">
+            <button class="close-menu-btn"><i class="fas fa-times"></i></button>
+            <ul class="mobile-nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Academics</a></li>
+                <li><a href="./admissions.html">Admissions</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Campus Life</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <button class="apply-btn mobile-apply">Apply Now</button>
+        </div>
+    </div>
+
+    <!-- Notice Carousel -->
+    <section class="notice-section">
+        <div class="container">
+            <div class="notice-header">
+                <i class="fas fa-bell"></i>
+                <h3>Important Notices</h3>
+            </div>
+            <div class="notice-carousel">
+                <div class="notice-container">
+                    <div class="notice active">
+                        <div class="notice-content">
+                            <div class="notice-badge important">Admission</div>
+                            <h4>Admission Open for Fall 2025 Semester</h4>
+                            <p class="notice-date">Published: March 25, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-content">
+                            <div class="notice-badge important">Scholarship</div>
+                            <h4>Scholarship Applications Due April 15</h4>
+                            <p class="notice-date">Published: March 20, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                    <div class="notice">
+                        <div class="notice-content">
+                            <div class="notice-badge">Academic</div>
+                            <h4>Campus Closed for Spring Break (April 5-12)</h4>
+                            <p class="notice-date">Published: March 18, 2025</p>
+                            <a href="#" class="notice-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="notice-controls">
+                    <button class="notice-prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="notice-indicators">
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <button class="notice-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Shaping Tomorrow's Leaders Today</h1>
+                <p class="hero-subtitle">Discover a transformative educational experience that prepares you for success in a rapidly changing world.</p>
+                <div class="hero-buttons">
+                    <button class="primary-btn">Explore Programs <i class="fas fa-arrow-right"></i></button>
+                    <button class="secondary-btn">Virtual Tour</button>
+                </div>
+            </div>
+            <div class="hero-animation">
+                <canvas id="particleCanvas"></canvas>
+                <div class="hero-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principal Message Section -->
+    <section class="principal-section">
+        <div class="diagonal-shapes">
+            <div class="diagonal-shape shape-1"></div>
+            <div class="diagonal-shape shape-2"></div>
+        </div>
+        <div class="container">
+            <div class="principal-content">
+                <blockquote class="principal-quote">
+                    "Young women and men growing up today face unique challenges. We all have an equal responsibility to invest time and energy in shaping their thinking and building their capacities to prepare them for the future."
+                </blockquote>
+                <div class="principal-info">
+                    <p class="principal-name">Dr. Robert Johnson</p>
+                    <p class="principal-title">Principal</p>
+                    <p class="principal-college">Adamjee Cantonment College</p>
+                </div>
+                <button class="outline-btn">Read More</button>
+            </div>
+            <div class="principal-image">
+                <img src="./pp.png" alt="Principal">
+            </div>
+        </div>
+        <div class="announcement-bar">
+            <div class="container">
+                <div class="announcement-buttons">
+                    <a href="#" class="announcement-btn active">Announcements</a>
+                    <a href="#" class="announcement-btn">Academic Dates</a>
+                </div>
+                <a href="#" class="view-all">View All</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links-section">
+        <div class="container">
+            <div class="quick-links">
+                <a href="#" class="quick-link">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="quick-link-text">
+                        <h3>Admissions</h3>
+                        <p>Apply today</p>
+                    </div>
+                </a>
+                <a href="#" class="quick-link">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="quick-link-text">
+                        <h3>Programs</h3>
+                        <p>Explore degrees</p>
+                    </div>
+                </a>
+                <a href="#" class="quick-link">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="quick-link-text">
+                        <h3>Events</h3>
+                        <p>Campus activities</p>
+                    </div>
+                </a>
+                <a href="#" class="quick-link">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="quick-link-text">
+                        <h3>Campus Map</h3>
+                        <p>Find your way</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Our College</h2>
+                <p>Founded in 1965, our institution has been at the forefront of academic excellence and innovation. We are committed to providing a transformative educational experience that prepares students for success in a rapidly changing world.</p>
+            </div>
+            <div class="about-features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Academic Excellence</h3>
+                    <p>Our rigorous academic programs are designed to challenge and inspire students to reach their full potential.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Diverse Community</h3>
+                    <p>We celebrate diversity and foster an inclusive environment where students from all backgrounds can thrive.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Innovative Research</h3>
+                    <p>Our faculty and students are engaged in cutting-edge research that addresses real-world challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <div class="section-header-with-button">
+                <div>
+                    <h2>Our Programs</h2>
+                    <p>Discover our comprehensive range of undergraduate and graduate programs.</p>
+                </div>
+                <button class="outline-btn">View All Programs <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="programs-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="undergraduate">Undergraduate</button>
+                    <button class="tab-btn" data-tab="graduate">Graduate</button>
+                    <button class="tab-btn" data-tab="professional">Professional</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="undergraduate">
+                        <div class="programs-grid">
+                            <div class="program-card">
+                                <div class="program-icon">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <div class="program-details">
+                                    <h3>Computer Science</h3>
+                                    <p>Learn programming, algorithms, and computational theory to solve complex problems.</p>
+                                    <div class="program-duration">
+                                        <i class="fas fa-clock"></i> Duration: 4 years
+                                    </div>
+                                    <button class="outline-btn small">Learn More</button>
+                                </div>
+                            </div>
+                            <div class="program-card">
+                                <div class="program-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="program-details">
+                                    <h3>Business Administration</h3>
+                                    <p>Develop leadership skills and business acumen for today's global marketplace.</p>
+                                    <div class="program-duration">
+                                        <i class="fas fa-clock"></i> Duration: 4 years
+                                    </div>
+                                    <button class="outline-btn small">Learn More</button>
+                                </div>
+                            </div>
+                            <div class="program-card">
+                                <div class="program-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="program-details">
+                                    <h3>Electrical Engineering</h3>
+                                    <p>Design and develop electrical systems, from microchips to power grids.</p>
+                                    <div class="program-duration">
+                                        <i class="fas fa-clock"></i> Duration: 4 years
+                                    </div>
+                                    <button class="outline-btn small">Learn More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="graduate">
+                        <!-- Graduate programs content -->
+                    </div>
+                    <div class="tab-pane" id="professional">
+                        <!-- Professional programs content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events Section -->
+    <section class="news-events-section">
+        <div class="container">
+            <div class="section-header-with-button">
+                <div>
+                    <h2>News & Events</h2>
+                    <p>Stay updated with the latest happenings on campus.</p>
+                </div>
+                <button class="outline-btn">View All <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="news-events-grid">
+                <div class="news-column">
+                    <h3>Latest News</h3>
+                    <div class="news-cards">
+                        <div class="news-card">
+                            <div class="news-badge">Research</div>
+                            <h4>College Receives $2M Research Grant</h4>
+                            <p>Our institution has been awarded a significant grant to advance research in renewable energy technologies.</p>
+                            <div class="news-footer">
+                                <div class="news-date">
+                                    <i class="fas fa-calendar"></i> March 15, 2025
+                                </div>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                        <div class="news-card">
+                            <div class="news-badge">Campus</div>
+                            <h4>New Computer Science Building Opening</h4>
+                            <p>The state-of-the-art facility will provide students with cutting-edge technology and collaborative spaces.</p>
+                            <div class="news-footer">
+                                <div class="news-date">
+                                    <i class="fas fa-calendar"></i> March 10, 2025
+                                </div>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                        <div class="news-card">
+                            <div class="news-badge">Faculty</div>
+                            <h4>Professor Wins National Teaching Award</h4>
+                            <p>Dr. Jane Smith has been recognized for her innovative teaching methods and dedication to student success.</p>
+                            <div class="news-footer">
+                                <div class="news-date">
+                                    <i class="fas fa-calendar"></i> March 5, 2025
+                                </div>
+                                <a href="#" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="events-column">
+                    <h3>Upcoming Events</h3>
+                    <div class="event-cards">
+                        <div class="event-card">
+                            <h4>Spring Open House</h4>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-calendar"></i> April 15, 2025
+                                </div>
+                                <div class="event-detail">
+                                    <i class="fas fa-clock"></i> 10:00 AM - 3:00 PM
+                                </div>
+                                <div class="event-detail">
+                                    <i class="fas fa-map-marker-alt"></i> Main Campus
+                                </div>
+                            </div>
+                            <button class="outline-btn small">Add to Calendar</button>
+                        </div>
+                        <div class="event-card">
+                            <h4>Career Fair</h4>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-calendar"></i> April 20, 2025
+                                </div>
+                                <div class="event-detail">
+                                    <i class="fas fa-clock"></i> 9:00 AM - 4:00 PM
+                                </div>
+                                <div class="event-detail">
+                                    <i class="fas fa-map-marker-alt"></i> Student Center
+                                </div>
+                            </div>
+                            <button class="outline-btn small">Add to Calendar</button>
+                        </div>
+                        <div class="event-card">
+                            <h4>Guest Lecture: Future of AI</h4>
+                            <div class="event-details">
+                                <div class="event-detail">
+                                    <i class="fas fa-calendar"></i> April 25, 2025
+                                </div>
+                                <div class="event-detail">
+                                    <i class="fas fa-clock"></i> 6:00 PM - 8:00 PM
+                                </div>
+                                <div class="event-detail">
+                                    <i class="fas fa-map-marker-alt"></i> Auditorium A
+                                </div>
+                            </div>
+                            <button class="outline-btn small">Add to Calendar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Join Our Community?</h2>
+                <p>Take the first step toward a transformative educational experience. Apply now or schedule a campus visit.</p>
+                <div class="cta-buttons">
+                    <button class="primary-btn">Apply Now</button>
+                    <button class="outline-btn light">Schedule a Visit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Connected</h2>
+                <p>Subscribe to our newsletter to receive updates on news, events, and important announcements.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="primary-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Adamjee Cantonment College" class="logo-small">
+                        <span>Adamjee Cantonment College</span>
+                    </div>
+                    <p>Providing quality education and fostering innovation since 1965.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Academics</a></li>
+                        <li><a href="#">Admissions</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Campus Life</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Career Services</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Faculty Directory</a></li>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Campus Map</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p>123 College Avenue</p>
+                        <p>Dhaka Cantonment, Bangladesh</p>
+                        <p class="contact-info">Phone: (123) 456-7890</p>
+                        <p class="contact-info">Email: info@adamjee.edu</p>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Adamjee Cantonment College. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
