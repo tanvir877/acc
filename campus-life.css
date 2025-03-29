@@ -247,7 +247,8 @@
 }
 
 .club-card {
-    background-color: var(--text-light);
+    /* background-color: rgba(116, 55, 55, 0.096); */
+    background: linear-gradient(-50deg,#F2F1F0,#F2F1F0,#fde9e9);
     border-radius: var(--border-radius-md);
     padding: var(--spacing-lg);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
