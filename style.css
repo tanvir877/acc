@@ -41,7 +41,7 @@
   .container {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin:  auto;
     padding: 0 var(--spacing-md);
   }
   
@@ -141,32 +141,40 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-sm) var(--spacing-md);
+    /* max-width: 100%; */
   }
   
   .logo-container {
     display: flex;
     align-items: center;
+    /* justify-content: center; */
+    /* margin-right: var(--spacing-md */
+
+    flex-shrink: 0.8;
+
+    /* max-width: 100px; */
+
+    /* flex-basis: 10px; */
   }
   
   .logo {
-    height: 70px;
     width: 70px;
-    margin-right: var(--spacing-sm);
-  }
+    height: 70px;
+    margin-right: var(--spacing-md);
+}
   
-  .college-name h1 {
-    color: var(--primary);
-    font-size: 1.5rem;
-    margin: 0;
-    line-height: 1.2;
-  }
+.college-name h1 {
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 0;
+}
   
-  .college-name p {
-    color: var(--text-muted);
+.college-name p {
     font-size: 0.875rem;
-    margin: 0;
-  }
-  
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
   .main-nav {
     display: flex;
     align-items: center;
@@ -231,14 +239,16 @@
     display: none;
     background: none;
     border: none;
-    cursor: pointer;
-    padding: var(--spacing-xs);
-  }
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
   
   .mobile-menu-btn span {
     display: block;
-    width: 25px;
-    height: 3px;
+    width: 100%;
+    height: 2px;
     background-color: var(--text-dark);
     margin: 5px 0;
     transition: transform 0.3s ease;
@@ -257,10 +267,12 @@
     padding: var(--spacing-lg);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
+    overflow-y: auto;
   }
   
   .mobile-nav.active {
     transform: translateX(0);
+    display: block;
   }
   
   .close-menu-btn {
