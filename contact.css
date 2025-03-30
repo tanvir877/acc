@@ -9,7 +9,8 @@
 }
 
 .contact-info-card {
-    background-color: var(--text-light);
+    /* background-color: var(--text-light); */
+    background: linear-gradient(-50deg,#F2F1F0,#F2F1F0,#fde9e9);
     border-radius: var(--border-radius-md);
     padding: var(--spacing-lg);
     text-align: center;
