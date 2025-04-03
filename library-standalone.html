@@ -1,47 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ACC Library Portal</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="library-standalone.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACC Library Portal</title>
+<link rel="shortcut icon" href="https://seeklogo.com/images/A/adamjee-cantonment-college-logo-3E821965EB-seeklogo.com.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="library-standalone.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="logo-container">
-        <img src="acclogo.png" alt="Adamjee Cantonment College" class="logo">
-        <div class="college-name">
-          <h1>ACC Library Portal</h1>
-          <p>Knowledge • Research • Excellence</p>
-        </div>
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <div class="logo-container">
+      <img src="acclogo.png" alt="Adamjee Cantonment College" class="logo">
+      <div class="college-name">
+        <h1>ACC Library Portal</h1>
+        <p>Knowledge • Research • Excellence</p>
       </div>
-      <nav class="main-nav">
-        <ul class="nav-links">
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#rules">Library Rules</a></li>
-          <li><a href="#new-books">New Books</a></li>
-          <li><a href="#facilities">Facilities</a></li>
-          <li><a href="#staff">Staff</a></li>
-          <li><a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Main Site</a></li>
-        </ul>
-        <button class="mobile-menu-btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
     </div>
-  </header>
-
-  <!-- Mobile Navigation -->
-  <div class="mobile-nav">
-    <div class="container">
-      <button class="close-menu-btn"><i class="fas fa-times"></i></button>
-      <ul class="mobile-nav-links">
+    <nav class="main-nav">
+      <ul class="nav-links">
         <li><a href="#" class="active">Home</a></li>
         <li><a href="#rules">Library Rules</a></li>
         <li><a href="#new-books">New Books</a></li>
@@ -49,475 +29,497 @@
         <li><a href="#staff">Staff</a></li>
         <li><a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Main Site</a></li>
       </ul>
+      <div class="mobile-menu-container">
+        <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+  <button class="close-menu-btn" aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <ul class="mobile-nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#rules">Library Rules</a></li>
+    <li><a href="#new-books">New Books</a></li>
+    <li><a href="#facilities">Facilities</a></li>
+    <li><a href="#staff">Staff</a></li>
+    <li><a href="index.html">Back to Main Site</a></li>
+  </ul>
+  <a href="#" class="primary-btn" style="display: block; text-align: center; margin-top: 2rem;">Login</a>
+</div>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="animate-fade-in">Welcome to ACC Library</h1>
+      <p class="animate-fade-in">Discover a world of knowledge and resources to support your academic journey</p>
+      <div class="hero-buttons animate-fade-in">
+        <a href="#" class="primary-btn">Search Catalog</a>
+        <a href="#" class="outline-btn">Reserve a Book</a>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="animate-fade-in">Welcome to ACC Library</h1>
-        <p class="animate-fade-in">Discover a world of knowledge and resources to support your academic journey</p>
-        <div class="hero-buttons animate-fade-in">
-          <a href="#" class="primary-btn">Search Catalog</a>
-          <a href="#" class="outline-btn">Reserve a Book</a>
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item animate-fade-up">
+        <div class="stat-number" data-count="5000">0</div>
+        <div class="stat-plus">+</div>
+        <div class="stat-label">Books</div>
+      </div>
+      <div class="stat-item animate-fade-up" data-delay="200">
+        <div class="stat-number" data-count="2000">0</div>
+        <div class="stat-plus">+</div>
+        <div class="stat-label">E-Books</div>
+      </div>
+      <div class="stat-item animate-fade-up" data-delay="400">
+        <div class="stat-number" data-count="200">0</div>
+        <div class="stat-plus">+</div>
+        <div class="stat-label">Journals</div>
+      </div>
+      <div class="stat-item animate-fade-up" data-delay="600">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Online Access</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Library Overview Section -->
+<section class="overview-section">
+  <div class="container">
+    <div class="overview-content">
+      <div class="overview-text animate-slide-right">
+        <h2 class="section-title">About Our Library</h2>
+        <p>The Adamjee Cantonment College Library is a center for academic excellence and intellectual growth. Our library provides a conducive environment for learning, research, and collaboration.</p>
+        <p>With extensive collections of books, journals, and digital resources, we aim to support the academic needs of our students and faculty.</p>
+        <a href="#" class="primary-btn">Learn More</a>
+      </div>
+      <div class="overview-image animate-slide-left">
+        <img src="https://library.acc.edu.bd/Lib_(6).jpg" alt="ACC Library">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Library Rules Section -->
+<section id="rules" class="rules-section">
+  <div class="container">
+    <h2 class="section-title animate-fade-in">Library Rules</h2>
+    <div class="rules-grid">
+      <div class="rule-card animate-fade-up">
+        <div class="rule-icon">
+          <i class="fas fa-volume-mute"></i>
+        </div>
+        <h3>Silence Must Be Maintained</h3>
+        <p>Students must maintain silence in the library at all times to create a conducive environment for reading and studying.</p>
+      </div>
+      <div class="rule-card animate-fade-up" data-delay="100">
+        <div class="rule-icon">
+          <i class="fas fa-id-card"></i>
+        </div>
+        <h3>Library Card is Mandatory</h3>
+        <p>Students must carry their library card at all times and present it when borrowing books or using library facilities.</p>
+      </div>
+      <div class="rule-card animate-fade-up" data-delay="200">
+        <div class="rule-icon">
+          <i class="fas fa-book"></i>
+        </div>
+        <h3>Book Borrowing Period</h3>
+        <p>Books can be borrowed for a period of 14 days. A maximum of 3 books can be borrowed at a time.</p>
+      </div>
+      <div class="rule-card animate-fade-up" data-delay="300">
+        <div class="rule-icon">
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <h3>Late Return Penalties</h3>
+        <p>Late returns will incur a fine of 5 Taka per day per book. Continued late returns may result in suspension of borrowing privileges.</p>
+      </div>
+      <div class="rule-card animate-fade-up" data-delay="400">
+        <div class="rule-icon">
+          <i class="fas fa-hand-holding"></i>
+        </div>
+        <h3>Handling of Books</h3>
+        <p>Books must be handled with care. Marking, folding pages, or damaging books in any way is strictly prohibited.</p>
+      </div>
+      <div class="rule-card animate-fade-up" data-delay="500">
+        <div class="rule-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3>Lost or Damaged Books</h3>
+        <p>Students will be required to replace lost or damaged books or pay the current market price of the book plus a processing fee.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- New Books Section -->
+<section id="new-books" class="new-books-section">
+  <div class="container">
+    <h2 class="section-title animate-fade-in">New Arrivals</h2>
+    <div class="books-grid">
+      <div class="book-card animate-fade-up">
+        <div class="book-cover">
+          <img src="book1.jpg" alt="Book Cover">
+        </div>
+        <div class="book-details">
+          <h3>Advanced Physics for Higher Secondary</h3>
+          <p class="book-author">By Dr. Md. Abdul Karim</p>
+          <p class="book-category">Category: Science</p>
+          <p class="book-date">Added: March 15, 2025</p>
+        </div>
+      </div>
+      <div class="book-card animate-fade-up" data-delay="100">
+        <div class="book-cover">
+          <img src="book2.jpg" alt="Book Cover">
+        </div>
+        <div class="book-details">
+          <h3>Comprehensive Mathematics</h3>
+          <p class="book-author">By Prof. Syed Ahmed</p>
+          <p class="book-category">Category: Mathematics</p>
+          <p class="book-date">Added: March 10, 2025</p>
+        </div>
+      </div>
+      <div class="book-card animate-fade-up" data-delay="200">
+        <div class="book-cover">
+          <img src="book3.jpg" alt="Book Cover">
+        </div>
+        <div class="book-details">
+          <h3>Modern Approach to Chemistry</h3>
+          <p class="book-author">By Dr. Fatima Rahman</p>
+          <p class="book-category">Category: Science</p>
+          <p class="book-date">Added: March 5, 2025</p>
+        </div>
+      </div>
+      <div class="book-card animate-fade-up" data-delay="300">
+        <div class="book-cover">
+          <img src="book4.jpg" alt="Book Cover">
+        </div>
+        <div class="book-details">
+          <h3>English Literature: A Comprehensive Guide</h3>
+          <p class="book-author">By Prof. Tahmina Khan</p>
+          <p class="book-category">Category: Literature</p>
+          <p class="book-date">Added: February 28, 2025</p>
         </div>
       </div>
     </div>
-  </section>
+    <div class="view-all-container animate-fade-in">
+      <a href="https://library.acc.edu.bd/new_arrival.pdf" class="view-all-btn">View All New Books <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
 
-  <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item animate-fade-up">
-          <div class="stat-number" data-count="50000">0</div>
-          <div class="stat-plus">+</div>
-          <div class="stat-label">Books</div>
+<!-- Facilities Section -->
+<section id="facilities" class="facilities-section">
+  <div class="container">
+    <h2 class="section-title animate-fade-in">Facilities of ACC Library</h2>
+    <div class="facilities-grid">
+      <div class="facility-card animate-fade-up">
+        <div class="facility-icon">
+          <i class="fas fa-book-reader"></i>
         </div>
-        <div class="stat-item animate-fade-up" data-delay="200">
-          <div class="stat-number" data-count="5000">0</div>
-          <div class="stat-plus">+</div>
-          <div class="stat-label">E-Books</div>
+        <h3>Reading Areas</h3>
+        <p>Spacious and well-lit reading areas with comfortable seating for individual study and research.</p>
+      </div>
+      <div class="facility-card animate-fade-up" data-delay="100">
+        <div class="facility-icon">
+          <i class="fas fa-laptop"></i>
         </div>
-        <div class="stat-item animate-fade-up" data-delay="400">
-          <div class="stat-number" data-count="200">0</div>
-          <div class="stat-plus">+</div>
-          <div class="stat-label">Journals</div>
+        <h3>Computer Lab</h3>
+        <p>Modern computer lab with internet access for research, assignments, and accessing digital resources.</p>
+      </div>
+      <div class="facility-card animate-fade-up" data-delay="200">
+        <div class="facility-icon">
+          <i class="fas fa-wifi"></i>
         </div>
-        <div class="stat-item animate-fade-up" data-delay="600">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Online Access</div>
+        <h3>Wi-Fi Connectivity</h3>
+        <p>High-speed Wi-Fi connectivity throughout the library for students to access online resources.</p>
+      </div>
+      <div class="facility-card animate-fade-up" data-delay="300">
+        <div class="facility-icon">
+          <i class="fas fa-print"></i>
         </div>
+        <h3>Printing & Photocopying</h3>
+        <p>Printing and photocopying services available at nominal charges for academic purposes.</p>
+      </div>
+      <div class="facility-card animate-fade-up" data-delay="400">
+        <div class="facility-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Group Study Rooms</h3>
+        <p>Dedicated rooms for group discussions and collaborative learning projects.</p>
+      </div>
+      <div class="facility-card animate-fade-up" data-delay="500">
+        <div class="facility-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>Digital Repository</h3>
+        <p>Access to digital journals, e-books, and online databases for comprehensive research.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Library Overview Section -->
-  <section class="overview-section">
-    <div class="container">
-      <div class="overview-content">
-        <div class="overview-text animate-slide-right">
-          <h2 class="section-title">About Our Library</h2>
-          <p>The Adamjee Cantonment College Library is a center for academic excellence and intellectual growth. Our library provides a conducive environment for learning, research, and collaboration.</p>
-          <p>With extensive collections of books, journals, and digital resources, we aim to support the academic needs of our students and faculty.</p>
-          <a href="#" class="primary-btn">Learn More</a>
-        </div>
-        <div class="overview-image animate-slide-left">
-          <img src="library-main.jpg" alt="ACC Library">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Library Rules Section -->
-  <section id="rules" class="rules-section">
-    <div class="container">
-      <h2 class="section-title animate-fade-in">Library Rules</h2>
-      <div class="rules-grid">
-        <div class="rule-card animate-fade-up">
-          <div class="rule-icon">
-            <i class="fas fa-volume-mute"></i>
-          </div>
-          <h3>Silence Must Be Maintained</h3>
-          <p>Students must maintain silence in the library at all times to create a conducive environment for reading and studying.</p>
-        </div>
-        <div class="rule-card animate-fade-up" data-delay="100">
-          <div class="rule-icon">
-            <i class="fas fa-id-card"></i>
-          </div>
-          <h3>Library Card is Mandatory</h3>
-          <p>Students must carry their library card at all times and present it when borrowing books or using library facilities.</p>
-        </div>
-        <div class="rule-card animate-fade-up" data-delay="200">
-          <div class="rule-icon">
-            <i class="fas fa-book"></i>
-          </div>
-          <h3>Book Borrowing Period</h3>
-          <p>Books can be borrowed for a period of 14 days. A maximum of 3 books can be borrowed at a time.</p>
-        </div>
-        <div class="rule-card animate-fade-up" data-delay="300">
-          <div class="rule-icon">
-            <i class="fas fa-exclamation-circle"></i>
-          </div>
-          <h3>Late Return Penalties</h3>
-          <p>Late returns will incur a fine of 5 Taka per day per book. Continued late returns may result in suspension of borrowing privileges.</p>
-        </div>
-        <div class="rule-card animate-fade-up" data-delay="400">
-          <div class="rule-icon">
-            <i class="fas fa-hand-holding"></i>
-          </div>
-          <h3>Handling of Books</h3>
-          <p>Books must be handled with care. Marking, folding pages, or damaging books in any way is strictly prohibited.</p>
-        </div>
-        <div class="rule-card animate-fade-up" data-delay="500">
-          <div class="rule-icon">
-            <i class="fas fa-tools"></i>
-          </div>
-          <h3>Lost or Damaged Books</h3>
-          <p>Students will be required to replace lost or damaged books or pay the current market price of the book plus a processing fee.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- New Books Section -->
-  <section id="new-books" class="new-books-section">
-    <div class="container">
-      <h2 class="section-title animate-fade-in">New Arrivals</h2>
-      <div class="books-grid">
-        <div class="book-card animate-fade-up">
-          <div class="book-cover">
-            <img src="book1.jpg" alt="Book Cover">
-          </div>
-          <div class="book-details">
-            <h3>Advanced Physics for Higher Secondary</h3>
-            <p class="book-author">By Dr. Md. Abdul Karim</p>
-            <p class="book-category">Category: Science</p>
-            <p class="book-date">Added: March 15, 2025</p>
-          </div>
-        </div>
-        <div class="book-card animate-fade-up" data-delay="100">
-          <div class="book-cover">
-            <img src="book2.jpg" alt="Book Cover">
-          </div>
-          <div class="book-details">
-            <h3>Comprehensive Mathematics</h3>
-            <p class="book-author">By Prof. Syed Ahmed</p>
-            <p class="book-category">Category: Mathematics</p>
-            <p class="book-date">Added: March 10, 2025</p>
-          </div>
-        </div>
-        <div class="book-card animate-fade-up" data-delay="200">
-          <div class="book-cover">
-            <img src="book3.jpg" alt="Book Cover">
-          </div>
-          <div class="book-details">
-            <h3>Modern Approach to Chemistry</h3>
-            <p class="book-author">By Dr. Fatima Rahman</p>
-            <p class="book-category">Category: Science</p>
-            <p class="book-date">Added: March 5, 2025</p>
-          </div>
-        </div>
-        <div class="book-card animate-fade-up" data-delay="300">
-          <div class="book-cover">
-            <img src="book4.jpg" alt="Book Cover">
-          </div>
-          <div class="book-details">
-            <h3>English Literature: A Comprehensive Guide</h3>
-            <p class="book-author">By Prof. Tahmina Khan</p>
-            <p class="book-category">Category: Literature</p>
-            <p class="book-date">Added: February 28, 2025</p>
-          </div>
-        </div>
-      </div>
-      <div class="view-all-container animate-fade-in">
-        <a href="https://library.acc.edu.bd/new_arrival.pdf" class="view-all-btn">View All New Books <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Facilities Section -->
-  <section id="facilities" class="facilities-section">
-    <div class="container">
-      <h2 class="section-title animate-fade-in">Facilities of ACC Library</h2>
-      <div class="facilities-grid">
-        <div class="facility-card animate-fade-up">
-          <div class="facility-icon">
-            <i class="fas fa-book-reader"></i>
-          </div>
-          <h3>Reading Areas</h3>
-          <p>Spacious and well-lit reading areas with comfortable seating for individual study and research.</p>
-        </div>
-        <div class="facility-card animate-fade-up" data-delay="100">
-          <div class="facility-icon">
-            <i class="fas fa-laptop"></i>
-          </div>
-          <h3>Computer Lab</h3>
-          <p>Modern computer lab with internet access for research, assignments, and accessing digital resources.</p>
-        </div>
-        <div class="facility-card animate-fade-up" data-delay="200">
-          <div class="facility-icon">
-            <i class="fas fa-wifi"></i>
-          </div>
-          <h3>Wi-Fi Connectivity</h3>
-          <p>High-speed Wi-Fi connectivity throughout the library for students to access online resources.</p>
-        </div>
-        <div class="facility-card animate-fade-up" data-delay="300">
-          <div class="facility-icon">
-            <i class="fas fa-print"></i>
-          </div>
-          <h3>Printing & Photocopying</h3>
-          <p>Printing and photocopying services available at nominal charges for academic purposes.</p>
-        </div>
-        <div class="facility-card animate-fade-up" data-delay="400">
-          <div class="facility-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>Group Study Rooms</h3>
-          <p>Dedicated rooms for group discussions and collaborative learning projects.</p>
-        </div>
-        <div class="facility-card animate-fade-up" data-delay="500">
-          <div class="facility-icon">
-            <i class="fas fa-database"></i>
-          </div>
-          <h3>Digital Repository</h3>
-          <p>Access to digital journals, e-books, and online databases for comprehensive research.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Library Gallery Section -->
-  <section class="gallery-section">
-    <div class="container">
-      <h2 class="section-title animate-fade-in">Library Gallery</h2>
-      <div class="gallery-underline"></div>
-      
-      <div class="gallery-container">
-        <div class="gallery-main animate-fade-in">
-          <img src="library-photo-1.jpg" alt="ACC Library Reading Area" id="gallery-featured">
-          <div class="gallery-caption">Main Reading Area</div>
-        </div>
-        
-        <div class="gallery-thumbnails">
-          <div class="gallery-thumb active animate-fade-up" data-delay="100" data-img="library-photo-1.jpg" data-caption="Main Reading Area">
-            <img src="library-photo-1.jpg" alt="ACC Library Reading Area">
-          </div>
-          <div class="gallery-thumb animate-fade-up" data-delay="200" data-img="library-photo-2.jpg" data-caption="Book Collection">
-            <img src="library-photo-2.jpg" alt="ACC Library Book Shelves">
-          </div>
-          <div class="gallery-thumb animate-fade-up" data-delay="300" data-img="library-photo-3.jpg" data-caption="Digital Resource Center">
-            <img src="library-photo-3.jpg" alt="ACC Library Computer Section">
-          </div>
-          <div class="gallery-thumb animate-fade-up" data-delay="400" data-img="library-photo-4.jpg" data-caption="Study Carrels">
-            <img src="library-photo-4.jpg" alt="ACC Library Study Area">
-          </div>
-        </div>
+<!-- Library Gallery Section -->
+<section class="gallery-section">
+  <div class="container">
+    <h2 class="section-title animate-fade-in">Library Gallery</h2>
+    <div class="gallery-underline"></div>
+    
+    <div class="gallery-container">
+      <div class="gallery-main animate-fade-in">
+        <img src="library-photo-1.jpg" alt="ACC Library Reading Area" id="gallery-featured">
+        <div class="gallery-caption">Main Reading Area</div>
       </div>
       
-      <div class="gallery-navigation animate-fade-in" data-delay="500">
-        <button class="gallery-nav-btn gallery-prev" aria-label="Previous image">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="gallery-dots">
-          <span class="gallery-dot active" data-index="0"></span>
-          <span class="gallery-dot" data-index="1"></span>
-          <span class="gallery-dot" data-index="2"></span>
-          <span class="gallery-dot" data-index="3"></span>
+      <div class="gallery-thumbnails">
+        <div class="gallery-thumb active animate-fade-up" data-delay="100" data-img="library-photo-1.jpg" data-caption="Main Reading Area">
+          <img src="library-photo-1.jpg" alt="ACC Library Reading Area">
         </div>
-        <button class="gallery-nav-btn gallery-next" aria-label="Next image">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Staff Section -->
-  <section id="staff" class="staff-section">
-    <div class="container">
-      <h2 class="section-title animate-fade-in">Meet Our Library Staff</h2>
-      <div class="staff-grid">
-        <div class="staff-card animate-fade-up">
-          <div class="staff-image">
-            <img src="library-lecturer.jpg" alt="Library Lecturer">
-          </div>
-          <div class="staff-info">
-            <h3>Dr. Aminul Islam</h3>
-            <p class="staff-position">Library Lecturer</p>
-            <p class="staff-email">aminul.islam@adamjee.edu</p>
-            <p class="staff-phone">(123) 456-7890 Ext. 101</p>
-          </div>
+        <div class="gallery-thumb animate-fade-up" data-delay="200" data-img="library-photo-2.jpg" data-caption="Book Collection">
+          <img src="library-photo-2.jpg" alt="ACC Library Book Shelves">
         </div>
-        <div class="staff-card animate-fade-up" data-delay="100">
-          <div class="staff-image">
-            <img src="cataloguer.jpg" alt="Cataloguer">
-          </div>
-          <div class="staff-info">
-            <h3>Ms. Fatima Rahman</h3>
-            <p class="staff-position">Cataloguer</p>
-            <p class="staff-email">fatima.rahman@adamjee.edu</p>
-            <p class="staff-phone">(123) 456-7890 Ext. 102</p>
-          </div>
+        <div class="gallery-thumb animate-fade-up" data-delay="300" data-img="library-photo-3.jpg" data-caption="Digital Resource Center">
+          <img src="library-photo-3.jpg" alt="ACC Library Computer Section">
         </div>
-        <div class="staff-card animate-fade-up" data-delay="200">
-          <div class="staff-image">
-            <img src="library-assistant.jpg" alt="Library Assistant">
-          </div>
-          <div class="staff-info">
-            <h3>Mr. Kamal Hossain</h3>
-            <p class="staff-position">Library Assistant</p>
-            <p class="staff-email">kamal.hossain@adamjee.edu</p>
-            <p class="staff-phone">(123) 456-7890 Ext. 103</p>
-          </div>
-        </div>
-        <div class="staff-card animate-fade-up" data-delay="300">
-          <div class="staff-image">
-            <img src="office-attendant-1.jpg" alt="Office Attendant">
-          </div>
-          <div class="staff-info">
-            <h3>Mr. Rahim Khan</h3>
-            <p class="staff-position">Office Attendant</p>
-            <p class="staff-email">rahim.khan@adamjee.edu</p>
-            <p class="staff-phone">(123) 456-7890 Ext. 104</p>
-          </div>
+        <div class="gallery-thumb animate-fade-up" data-delay="400" data-img="library-photo-4.jpg" data-caption="Study Carrels">
+          <img src="library-photo-4.jpg" alt="ACC Library Study Area">
         </div>
       </div>
     </div>
-  </section>
+    
+    <div class="gallery-navigation animate-fade-in" data-delay="500">
+      <button class="gallery-nav-btn gallery-prev" aria-label="Previous image">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="gallery-dots">
+        <span class="gallery-dot active" data-index="0"></span>
+        <span class="gallery-dot" data-index="1"></span>
+        <span class="gallery-dot" data-index="2"></span>
+        <span class="gallery-dot" data-index="3"></span>
+      </div>
+      <button class="gallery-nav-btn gallery-next" aria-label="Next image">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
 
-  <!-- Hours Section -->
-  <section class="hours-section">
-    <div class="container">
-      <h2 class="section-title animate-fade-in">Library Hours</h2>
-      <div class="title-underline"></div>
+<!-- Staff Section -->
+<section id="staff" class="staff-section">
+  <div class="container">
+    <h2 class="section-title animate-fade-in">Meet Our Library Staff</h2>
+    <div class="staff-grid">
+      <div class="staff-card animate-fade-up">
+        <div class="staff-image">
+          <img src="https://library.acc.edu.bd/Shamsul.jpg" alt="Library Lecturer">
+        </div>
+        <div class="staff-info">
+          <h3>Dr. Aminul Islam</h3>
+          <p class="staff-position">Library Lecturer</p>
+          <p class="staff-email">aminul.islam@adamjee.edu</p>
+          <p class="staff-phone">(123) 456-7890 Ext. 101</p>
+        </div>
+      </div>
+      <div class="staff-card animate-fade-up" data-delay="100">
+        <div class="staff-image">
+          <img src="https://library.acc.edu.bd/Tafazzal.jpg" alt="Cataloguer">
+        </div>
+        <div class="staff-info">
+          <h3>Ms. Fatima Rahman</h3>
+          <p class="staff-position">Cataloguer</p>
+          <p class="staff-email">fatima.rahman@adamjee.edu</p>
+          <p class="staff-phone">(123) 456-7890 Ext. 102</p>
+        </div>
+      </div>
+      <div class="staff-card animate-fade-up" data-delay="200">
+        <div class="staff-image">
+          <img src="-----" alt="Library Assistant">
+        </div>
+        <div class="staff-info">
+          <h3>Mr. Kamal Hossain</h3>
+          <p class="staff-position">Library Assistant</p>
+          <p class="staff-email">kamal.hossain@adamjee.edu</p>
+          <p class="staff-phone">(123) 456-7890 Ext. 103</p>
+        </div>
+      </div>
+      <div class="staff-card animate-fade-up" data-delay="300">
+        <div class="staff-image">
+          <img src="https://library.acc.edu.bd/Motaleb.jpg" alt="Office Attendant">
+        </div>
+        <div class="staff-info">
+          <h3>Mr. Rahim Khan</h3>
+          <p class="staff-position">Office Attendant</p>
+          <p class="staff-email">rahim.khan@adamjee.edu</p>
+          <p class="staff-phone">(123) 456-7890 Ext. 104</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hours Section -->
+<section class="hours-section">
+  <div class="container">
+    <h2 class="section-title animate-fade-in">Library Hours</h2>
+    <div class="title-underline"></div>
+    
+    <div class="hours-container animate-fade-up">
+      <div class="hours-card">
+        <div class="hours-grid">
+          <div class="hours-day">
+            <div class="day-label">Monday - Friday</div>
+            <div class="time-label">8:00 AM - 5:00 PM</div>
+          </div>
+          <div class="hours-day">
+            <div class="day-label">Saturday</div>
+            <div class="time-label">9:00 AM - 1:00 PM</div>
+          </div>
+          <div class="hours-day">
+            <div class="day-label">Sunday</div>
+            <div class="time-label closed">Closed</div>
+          </div>
+          <div class="hours-day">
+            <div class="day-label">Public Holidays</div>
+            <div class="time-label closed">Closed</div>
+          </div>
+        </div>
+        <div class="hours-note">
+          * Hours may vary during examination periods and holidays. Please check the notice board for any changes.
+        </div>
+      </div>
       
-      <div class="hours-container animate-fade-up">
-        <div class="hours-card">
-          <div class="hours-grid">
-            <div class="hours-day">
-              <div class="day-label">Monday - Friday</div>
-              <div class="time-label">8:00 AM - 5:00 PM</div>
+      <div class="hours-visual">
+        <div class="clock-container">
+          <div class="clock">
+            <div class="clock-face">
+              <div class="clock-hour"></div>
+              <div class="clock-minute"></div>
+              <div class="clock-second"></div>
+              <div class="clock-center"></div>
+              <div class="clock-marking marking-12"></div>
+              <div class="clock-marking marking-3"></div>
+              <div class="clock-marking marking-6"></div>
+              <div class="clock-marking marking-9"></div>
             </div>
-            <div class="hours-day">
-              <div class="day-label">Saturday</div>
-              <div class="time-label">9:00 AM - 1:00 PM</div>
-            </div>
-            <div class="hours-day">
-              <div class="day-label">Sunday</div>
-              <div class="time-label closed">Closed</div>
-            </div>
-            <div class="hours-day">
-              <div class="day-label">Public Holidays</div>
-              <div class="time-label closed">Closed</div>
-            </div>
-          </div>
-          <div class="hours-note">
-            * Hours may vary during examination periods and holidays. Please check the notice board for any changes.
           </div>
         </div>
-        
-        <div class="hours-visual">
-          <div class="clock-container">
-            <div class="clock">
-              <div class="clock-face">
-                <div class="clock-hour"></div>
-                <div class="clock-minute"></div>
-                <div class="clock-second"></div>
-                <div class="clock-center"></div>
-                <div class="clock-marking marking-12"></div>
-                <div class="clock-marking marking-3"></div>
-                <div class="clock-marking marking-6"></div>
-                <div class="clock-marking marking-9"></div>
-              </div>
-            </div>
-          </div>
-          <div class="today-status">
-            <div class="status-label">Current Status:</div>
-            <div class="status-value" id="library-status">Checking...</div>
-          </div>
+        <div class="today-status">
+          <div class="status-label">Current Status:</div>
+          <div class="status-value" id="library-status">Checking...</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <div class="container">
-      <h2 class="section-title animate-fade-in">Contact the Library</h2>
-      <div class="contact-grid">
-        <div class="contact-info animate-slide-right">
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h3>Address</h3>
-              <p>Library Building, Adamjee Cantonment College<br>Dhaka Cantonment, Bangladesh</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <div>
-              <h3>Phone</h3>
-              <p>(123) 456-7890</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <h3>Email</h3>
-              <p>library@adamjee.edu</p>
-            </div>
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    <h2 class="section-title animate-fade-in">Contact the Library</h2>
+    <div class="contact-grid">
+      <div class="contact-info animate-slide-right">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h3>Address</h3>
+            <p>Library Building, Adamjee Cantonment College<br>Dhaka Cantonment, Bangladesh</p>
           </div>
         </div>
-        <div class="contact-form animate-slide-left">
-          <form>
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="primary-btn">Send Message</button>
-          </form>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <h3>Phone</h3>
+            <p>(123) 456-7890</p>
+          </div>
         </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h3>Email</h3>
+            <p>library@adamjee.edu</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form animate-slide-left">
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="primary-btn">Send Message</button>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-logo animate-fade-in">
-          <img src="acclogo.png" alt="Adamjee Cantonment College" class="logo-small">
-          <span>ACC Library</span>
-        </div>
-        <div class="footer-links animate-fade-in" data-delay="100">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#rules">Library Rules</a></li>
-            <li><a href="#new-books">New Books</a></li>
-            <li><a href="#facilities">Facilities</a></li>
-            <li><a href="#staff">Staff</a></li>
-          </ul>
-        </div>
-        <div class="footer-links animate-fade-in" data-delay="200">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="#">Online Catalog</a></li>
-            <li><a href="#">E-Books</a></li>
-            <li><a href="#">Journals</a></li>
-            <li><a href="#">Research Databases</a></li>
-            <li><a href="#">Academic Resources</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact animate-fade-in" data-delay="300">
-          <h3>Contact Us</h3>
-          <p><i class="fas fa-map-marker-alt"></i> Library Building, ACC Campus</p>
-          <p><i class="fas fa-phone-alt"></i> (123) 456-7890</p>
-          <p><i class="fas fa-envelope"></i> library@adamjee.edu</p>
-        </div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-logo animate-fade-in">
+        <img src="acclogo2.png" alt="Adamjee Cantonment College" class="logo-small">
+        <span>ACC Library</span>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Adamjee Cantonment College Library. All rights reserved.</p>
-        <a href="index.html" class="back-to-main">Back to Main Site</a>
+      <div class="footer-links animate-fade-in" data-delay="100">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#rules">Library Rules</a></li>
+          <li><a href="#new-books">New Books</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#staff">Staff</a></li>
+        </ul>
+      </div>
+      <div class="footer-links animate-fade-in" data-delay="200">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Online Catalog</a></li>
+          <li><a href="#">E-Books</a></li>
+          <li><a href="#">Journals</a></li>
+          <li><a href="#">Research Databases</a></li>
+          <li><a href="#">Academic Resources</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact animate-fade-in" data-delay="300">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Library Building, ACC Campus</p>
+        <p><i class="fas fa-phone-alt"></i> (123) 456-7890</p>
+        <p><i class="fas fa-envelope"></i> library@adamjee.edu</p>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Adamjee Cantonment College Library. All rights reserved.</p>
+      <a href="index.html" class="back-to-main">Back to Main Site</a>
+    </div>
+  </div>
+</footer>
 
-  <!-- Scripts -->
-  <script src="library-standalone.js"></script>
+<!-- Scripts -->
+<script src="library-standalone.js"></script>
 </body>
 </html>
 

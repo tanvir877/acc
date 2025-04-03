@@ -7,13 +7,53 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileNav = document.querySelector(".mobile-nav")
   const closeMenuBtn = document.querySelector(".close-menu-btn")
 
-  if (mobileMenuBtn && mobileNav && closeMenuBtn) {
-    mobileMenuBtn.addEventListener("click", () => {
-      mobileNav.classList.add("active")
+  if (mobileMenuBtn && mobileNav) {
+    // Toggle mobile menu when hamburger button is clicked
+    mobileMenuBtn.addEventListener("click", (e) => {
+      e.preventDefault()
+      e.stopPropagation() // Prevent event from bubbling up
+      mobileNav.classList.toggle("active")
+      mobileMenuBtn.classList.toggle("active")
+
+      // Prevent body scrolling when menu is open
+      if (mobileNav.classList.contains("active")) {
+        document.body.style.overflow = "hidden"
+      } else {
+        document.body.style.overflow = ""
+      }
     })
 
-    closeMenuBtn.addEventListener("click", () => {
-      mobileNav.classList.remove("active")
+    // Close mobile menu when X button is clicked
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        mobileNav.classList.remove("active")
+        mobileMenuBtn.classList.remove("active")
+        document.body.style.overflow = ""
+      })
+    }
+
+    // Close mobile menu when clicking on a menu item
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a")
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.remove("active")
+        mobileMenuBtn.classList.remove("active")
+        document.body.style.overflow = ""
+      })
+    })
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (
+        mobileNav.classList.contains("active") &&
+        !mobileMenuBtn.contains(e.target) &&
+        !mobileNav.contains(e.target)
+      ) {
+        mobileNav.classList.remove("active")
+        mobileMenuBtn.classList.remove("active")
+        document.body.style.overflow = ""
+      }
     })
   }
 
@@ -232,7 +272,8 @@ document.addEventListener("DOMContentLoaded", () => {
   `
   document.head.appendChild(style)
 
-  // Gallery functionality
+  // Gallery functionality - FIXED VERSION
+  const galleryContainer = document.querySelector(".gallery-container")
   const galleryMain = document.getElementById("gallery-featured")
   const galleryCaption = document.querySelector(".gallery-caption")
   const galleryThumbs = document.querySelectorAll(".gallery-thumb")
@@ -243,19 +284,65 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentGalleryIndex = 0
   const totalGalleryItems = galleryThumbs.length
 
+  // Preload all gallery images to avoid disappearing during transitions
+  function preloadGalleryImages() {
+    galleryThumbs.forEach((thumb) => {
+      const imgSrc = thumb.getAttribute("data-img")
+      const img = new Image()
+      img.src = imgSrc
+    })
+  }
+
+  // Call preload function
+  preloadGalleryImages()
+
   function updateGallery(index) {
-    // Update main image and caption
+    // Get the new image source and caption
     const activeThumb = galleryThumbs[index]
     const imgSrc = activeThumb.getAttribute("data-img")
     const imgCaption = activeThumb.getAttribute("data-caption")
 
-    // Add fade out/in animation
-    galleryMain.style.opacity = 0
-    setTimeout(() => {
-      galleryMain.src = imgSrc
-      galleryCaption.textContent = imgCaption
-      galleryMain.style.opacity = 1
-    }, 300)
+    // Create a clone of the current main image that will stay visible during transition
+    const currentImg = galleryMain.cloneNode(true)
+    currentImg.id = "gallery-temp"
+    currentImg.style.position = "absolute"
+    currentImg.style.top = "0"
+    currentImg.style.left = "0"
+    currentImg.style.width = "100%"
+    currentImg.style.height = "100%"
+    currentImg.style.zIndex = "1"
+
+    // Add the clone to the container
+    const mainContainer = galleryMain.parentElement
+    mainContainer.style.position = "relative"
+    mainContainer.appendChild(currentImg)
+
+    // Set the new image source
+    galleryMain.src = imgSrc
+    galleryMain.style.opacity = "0"
+    galleryCaption.textContent = imgCaption
+
+    // Once the new image is loaded, fade it in and remove the clone
+    galleryMain.onload = () => {
+      galleryMain.style.opacity = "1"
+
+      // Remove the clone after transition
+      setTimeout(() => {
+        if (document.getElementById("gallery-temp")) {
+          mainContainer.removeChild(document.getElementById("gallery-temp"))
+        }
+      }, 500)
+    }
+
+    // If image is already cached and onload doesn't fire
+    if (galleryMain.complete) {
+      galleryMain.style.opacity = "1"
+      setTimeout(() => {
+        if (document.getElementById("gallery-temp")) {
+          mainContainer.removeChild(document.getElementById("gallery-temp"))
+        }
+      }, 500)
+    }
 
     // Update active thumbnail
     galleryThumbs.forEach((thumb) => thumb.classList.remove("active"))
@@ -315,9 +402,10 @@ document.addEventListener("DOMContentLoaded", () => {
     startGalleryRotation()
 
     // Pause on hover
-    const galleryContainer = document.querySelector(".gallery-container")
-    galleryContainer.addEventListener("mouseenter", stopGalleryRotation)
-    galleryContainer.addEventListener("mouseleave", startGalleryRotation)
+    if (galleryContainer) {
+      galleryContainer.addEventListener("mouseenter", stopGalleryRotation)
+      galleryContainer.addEventListener("mouseleave", startGalleryRotation)
+    }
   }
 
   // Add this to the end of the DOMContentLoaded event handler
