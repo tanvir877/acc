@@ -64,52 +64,54 @@
     </div>
 
     <!-- Important Notices Section -->
-    <section class="notice-section">
-        <div class="container">
-            <div class="notice-header">
-                <i class="fas fa-bell"></i>
-                <h3>Important Notices</h3>
+<!-- Important Notices Section -->
+<section class="notice-section">
+    <div class="container">
+        <div class="notice-header">
+            <i class="fas fa-bell"></i>
+            <h3>Important Notices</h3>
+        </div>
+        <div class="notice-carousel">
+            <div class="notice-container">
+                <div class="notice active">
+                    <div class="notice-content">
+                        <div class="notice-badge important">Event</div>
+                        <h4>Annual Sports Day - April 20, 2025</h4>
+                        <p class="notice-date">Published: March 25, 2025</p>
+                        <a href="#notice-board" class="notice-link">Read More</a>
+                    </div>
+                </div>
+                <div class="notice">
+                    <div class="notice-content">
+                        <div class="notice-badge important">Club</div>
+                        <h4>Science Club Recruitment Open</h4>
+                        <p class="notice-date">Published: March 20, 2025</p>
+                        <a href="#notice-board" class="notice-link">Read More</a>
+                    </div>
+                </div>
+                <div class="notice">
+                    <div class="notice-content">
+                        <div class="notice-badge">Cultural</div>
+                        <h4>Cultural Week Celebration (April 15-20)</h4>
+                        <p class="notice-date">Published: March 18, 2025</p>
+                        <a href="#notice-board" class="notice-link">Read More</a>
+                    </div>
+                </div>
             </div>
-            <div class="notice-carousel">
-                <div class="notice-container">
-                    <div class="notice active">
-                        <div class="notice-content">
-                            <div class="notice-badge important">Event</div>
-                            <h4>Annual Sports Day - April 20, 2025</h4>
-                            <p class="notice-date">Published: March 25, 2025</p>
-                            <a href="#" class="notice-link">Read More</a>
-                        </div>
-                    </div>
-                    <div class="notice">
-                        <div class="notice-content">
-                            <div class="notice-badge important">Club</div>
-                            <h4>Science Club Recruitment Open</h4>
-                            <p class="notice-date">Published: March 20, 2025</p>
-                            <a href="#" class="notice-link">Read More</a>
-                        </div>
-                    </div>
-                    <div class="notice">
-                        <div class="notice-content">
-                            <div class="notice-badge">Cultural</div>
-                            <h4>Cultural Week Celebration (April 15-20)</h4>
-                            <p class="notice-date">Published: March 18, 2025</p>
-                            <a href="#" class="notice-link">Read More</a>
-                        </div>
-                    </div>
+            <div class="notice-controls">
+                <button class="notice-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="notice-indicators">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <div class="notice-controls">
-                    <button class="notice-prev"><i class="fas fa-chevron-left"></i></button>
-                    <div class="notice-indicators">
-                        <span class="active"></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <button class="notice-next"><i class="fas fa-chevron-right"></i></button>
-                </div>
+                <button class="notice-next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<!-- Add this code right after the notice-section and before the hero-section -->
 
     <!-- ===== SLIDESHOW HTML START ===== -->
 
@@ -216,6 +218,106 @@
             <div class="quick-links">
                 <a href="#" class="quick-link-btn">Announcements</a>
                 <a href="#" class="quick-link-btn">Academic Dates</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Notice Board Section (BRAC University Style) -->
+    <section id="notice-board" class="notice-board-section">
+        <div class="container">
+            <div class="notice-board-header">
+                <h2><i class="fas fa-bullhorn"></i> Notice Board</h2>
+                <a href="#" class="all-notices-btn">All Notices</a>
+            </div>
+            
+            <div class="notice-board-content">
+                <!-- Featured Notice -->
+                <div class="featured-notice">
+    <div class="featured-notice-slideshow">
+        <div class="featured-slide active">
+            <img src="https://source.unsplash.com/random/600x400/?college,science" alt="Science Fair" class="featured-notice-image">
+            <div class="featured-notice-overlay">
+                <div class="featured-notice-meta">
+                    <span class="notice-category">EVENT</span>
+                    <span class="notice-date">27 Mar 2025</span>
+                </div>
+                <h3 class="featured-notice-title">Annual Science Fair 2025: Showcasing Innovation and Creativity</h3>
+                <p class="featured-notice-description">Join us for the Annual Science Fair where students will present their innovative projects and research findings.</p>
+            </div>
+        </div>
+        <div class="featured-slide">
+            <img src="https://source.unsplash.com/random/600x400/?college,graduation" alt="Graduation Ceremony" class="featured-notice-image">
+            <div class="featured-notice-overlay">
+                <div class="featured-notice-meta">
+                    <span class="notice-category">ANNOUNCEMENT</span>
+                    <span class="notice-date">25 Mar 2025</span>
+                </div>
+                <h3 class="featured-notice-title">Graduation Ceremony 2025: Celebrating Student Achievement</h3>
+                <p class="featured-notice-description">The annual graduation ceremony will be held on May 15th at the college auditorium. All graduating students must register by April 30th.</p>
+            </div>
+        </div>
+        <div class="featured-slide">
+            <img src="https://source.unsplash.com/random/600x400/?college,sports" alt="Sports Tournament" class="featured-notice-image">
+            <div class="featured-notice-overlay">
+                <div class="featured-notice-meta">
+                    <span class="notice-category">SPORTS</span>
+                    <span class="notice-date">22 Mar 2025</span>
+                </div>
+                <h3 class="featured-notice-title">Inter-College Sports Tournament: Registration Open</h3>
+                <p class="featured-notice-description">Register your teams for the upcoming inter-college sports tournament. Events include cricket, football, basketball, and athletics.</p>
+            </div>
+        </div>
+    </div>
+</div>
+                
+                <!-- Notice List -->
+                <div class="notice-list">
+                    <!-- Notice Item 1 -->
+                    <div class="notice-item">
+                        <div class="notice-date-box">
+                            <span class="notice-day">30</span>
+                            <span class="notice-month">Mar</span>
+                            <span class="notice-year">2025</span>
+                        </div>
+                        <div class="notice-details">
+                            <span class="notice-time">Sunday, 10:30 am</span>
+                            <h3 class="notice-title">ACC's Project Ramadan: Extending Support to Families in Need</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Notice Item 2 -->
+                    <div class="notice-item">
+                        <div class="notice-date-box">
+                            <span class="notice-day">27</span>
+                            <span class="notice-month">Mar</span>
+                            <span class="notice-year">2025</span>
+                        </div>
+                        <div class="notice-details">
+                            <span class="notice-time">Thursday, 10:00 pm</span>
+                            <h3 class="notice-title">Adamjee Cantonment College Celebrates Faculty Recognition in 2024 National Awards</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Notice Item 3 -->
+                    <div class="notice-item">
+                        <div class="notice-date-box">
+                            <span class="notice-day">25</span>
+                            <span class="notice-month">Mar</span>
+                            <span class="notice-year">2025</span>
+                        </div>
+                        <div class="notice-details">
+                            <span class="notice-time">Tuesday, 11:45 am</span>
+                            <h3 class="notice-title">Project Hashimukh 2025: A Ramadan Initiative by ACC Response Team</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notice-pagination">
+                <span class="pagination-dot active"></span>
+                <span class="pagination-dot"></span>
+                <span class="pagination-dot"></span>
             </div>
         </div>
     </section>

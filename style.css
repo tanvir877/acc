@@ -1399,3 +1399,556 @@
   
 
   
+  /* Notice Board Styles (based on BRAC University news area) */
+.notice-board-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--background-light);
+}
+
+.notice-board-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.notice-board-header h2 {
+  color: var(--secondary);
+  font-size: 1.8rem;
+  margin: 0;
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+.notice-board-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), #ff6b6b);
+}
+
+.notice-board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.notice-card {
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.notice-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.notice-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.notice-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.notice-card:hover .notice-image img {
+  transform: scale(1.05);
+}
+
+.notice-details {
+  padding: var(--spacing-md);
+}
+
+.notice-category {
+  display: inline-block;
+  background: linear-gradient(to right, var(--primary), #ff6b6b);
+  color: var(--text-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.notice-title {
+  color: var(--secondary);
+  font-size: 1.1rem;
+  margin: 0 0 var(--spacing-sm);
+  line-height: 1.4;
+}
+
+.notice-meta {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.notice-meta i {
+  margin-right: 5px;
+  color: var(--primary);
+}
+
+.notice-meta span {
+  margin-right: var(--spacing-md);
+}
+
+.notice-excerpt {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+}
+
+.notice-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.notice-link i {
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.notice-link:hover i {
+  transform: translateX(3px);
+}
+
+.view-all-notices {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.view-all-notices-btn {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(to right, var(--primary), #ff6b6b);
+  color: var(--text-light);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-all-notices-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(193, 39, 45, 0.3);
+}
+
+.view-all-notices-btn i {
+  margin-left: var(--spacing-sm);
+}
+
+@media (max-width: 992px) {
+  .notice-board-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .notice-board-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Add these styles at the end of your style.css file */
+
+/* Enhance the Notice Board Section styles for better responsiveness */
+
+/* Add these styles to improve the notice board section */
+.notice-board-section {
+  padding: var(--spacing-xl) 0;
+  background-color: #ffffff;
+  overflow: hidden; /* Prevent horizontal scroll on mobile */
+}
+
+.notice-board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 15px; /* Space between elements when wrapped */
+}
+
+.notice-board-header h2 {
+  font-size: clamp(1.5rem, 5vw, 2rem); /* Responsive font size */
+  color: #1a2b5f;
+  font-weight: 600;
+  margin: 0;
+  position: relative;
+}
+
+/* Add these styles to enhance the notice board header icon: */
+.notice-board-header h2 i {
+  color: var(--primary);
+  margin-right: 10px;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+.notice-board-header h2 {
+  display: flex;
+  align-items: center;
+}
+
+.all-notices-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #f8f9fa;
+  color: #1a2b5f;
+  border: 1px solid #dee2e6;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.all-notices-btn:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notice-board-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  transition: all 0.5s ease; /* Smooth transition for responsive changes */
+}
+
+.featured-notice {
+  position: relative;
+  height: clamp(300px, 50vw, 400px); /* Responsive height */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.featured-notice:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.featured-notice-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.featured-notice:hover .featured-notice-image {
+  transform: scale(1.05);
+}
+
+.featured-notice-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: clamp(15px, 5vw, 30px); /* Responsive padding */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.featured-notice:hover .featured-notice-overlay {
+  padding-bottom: clamp(20px, 6vw, 40px); /* Expand padding on hover */
+}
+
+.featured-notice-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.notice-category {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.featured-notice-title {
+  font-size: clamp(1.2rem, 3vw, 1.5rem); /* Responsive font size */
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.featured-notice-description {
+  font-size: clamp(0.8rem, 2vw, 0.9rem); /* Responsive font size */
+  opacity: 0.9;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.notice-item {
+  display: flex;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.notice-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.notice-date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9f0ff;
+  color: #1a2b5f;
+  padding: 15px;
+  min-width: 80px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.notice-item:hover .notice-date-box {
+  background-color: #d0e0ff;
+}
+
+.notice-day {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.notice-month {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.notice-year {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 3px;
+}
+
+.notice-details {
+  padding: 15px;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.notice-item:hover .notice-details {
+  background-color: #f0f0f0;
+}
+
+.notice-time {
+  display: block;
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+.notice-title {
+  font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive font size */
+  color: #1a2b5f;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+
+.notice-item:hover .notice-title {
+  color: #c1272d;
+}
+
+.notice-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.pagination-dot {
+  width: clamp(20px, 5vw, 30px); /* Responsive width */
+  height: 4px;
+  background-color: #dee2e6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot:hover {
+  background-color: #adb5bd;
+}
+
+.pagination-dot.active {
+  background-color: #1a2b5f;
+  width: clamp(30px, 7vw, 40px); /* Slightly wider when active */
+}
+
+/* Enhanced responsive styles */
+@media (max-width: 992px) {
+  .notice-board-content {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-notice {
+    height: 350px;
+  }
+
+  .notice-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .notice-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .notice-board-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .featured-notice {
+    height: 300px;
+  }
+
+  .featured-notice-overlay {
+    padding: 20px;
+  }
+
+  .featured-notice-title {
+    font-size: 1.3rem;
+  }
+
+  .notice-item {
+    flex-direction: row; /* Keep horizontal layout on mobile */
+  }
+
+  .notice-date-box {
+    min-width: 70px; /* Slightly smaller on mobile */
+    padding: 10px;
+  }
+
+  /* Add smooth transitions for touch interactions */
+  .notice-board-content {
+    touch-action: pan-y; /* Enable vertical scrolling */
+  }
+
+  /* Improve touch target sizes */
+  .pagination-dot {
+    height: 6px; /* Slightly taller for easier tapping */
+    margin: 0 4px; /* Add more space between dots */
+  }
+}
+
+/* Add animation keyframes for slide effects */
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply animations */
+.featured-notice {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.notice-list {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.notice-pagination {
+  animation: fadeIn 1s ease-out 0.5s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Featured Notice Slideshow */
+.featured-notice-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.featured-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  visibility: hidden;
+}
+
+.featured-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
