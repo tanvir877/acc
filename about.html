@@ -230,6 +230,330 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Governing Body Section Styles */
+.governing-body-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--background-light);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .governing-body-section::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(193, 39, 45, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  .governing-body-section::after {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(26, 43, 95, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  .governing-body-section .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .section-title {
+    text-align: center;
+    color: var(--secondary);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .section-subtitle::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary);
+  }
+  
+  /* Category Styles */
+  .gov-category {
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .gov-category.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .gov-category-title {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    position: relative;
+  }
+  
+  .gov-category-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 50%;
+    height: 2px;
+    background-color: var(--secondary);
+  }
+  
+  .gov-subcategory {
+    margin-bottom: 2.5rem;
+  }
+  
+  .gov-subcategory:last-child {
+    margin-bottom: 0;
+  }
+  
+  .gov-subcategory-title {
+    color: var(--secondary);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    padding-left: 1rem;
+    border-left: 3px solid var(--secondary);
+  }
+  
+  /* Grid Layout */
+  .gov-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .chairman-grid,
+  .secretary-grid {
+    grid-template-columns: minmax(280px, 400px);
+    justify-content: center;
+  }
+  
+  /* Member Card Styles */
+  .gov-member-card {
+    background-color: transparent;
+    perspective: 1000px;
+    height: 450px;
+    cursor: pointer;
+    justify-content: center;
+
+  }
+  
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .gov-member-card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .card-front {
+    background-color: var(--text-light);
+  }
+  
+  .card-back {
+    background-color: var(--secondary);
+    color: var(--text-light);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .member-photo {
+    height: 320px;
+    overflow: hidden;
+    border-bottom: 3px solid var(--primary);
+  }
+  
+  .member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .gov-member-card:hover .member-photo img {
+    transform: scale(1.05);
+  }
+  
+  .member-info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .member-name {
+    color: var(--secondary);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .member-position {
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .member-details {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .member-contact {
+    margin-top: 1rem;
+  }
+  
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .contact-link i {
+    margin-right: 0.5rem;
+  }
+  
+  /* Special Cards */
+  .chairman-card .card-front,
+  .secretary-card .card-front {
+    background: linear-gradient(to bottom, var(--text-light) 0%, rgba(242, 241, 240, 0.9) 100%);
+  }
+  
+  .chairman-card .card-back,
+  .secretary-card .card-back {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  }
+  
+  .chairman-card .member-photo,
+  .secretary-card .member-photo {
+    border-bottom: 3px solid var(--secondary);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .gov-members-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  
+    .gov-member-card {
+      height: 420px;
+    }
+  
+    .member-photo {
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .gov-members-grid {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+  
+    .gov-member-card {
+      height: 400px;
+    }
+  
+    .member-photo {
+      height: 280px;
+    }
+  
+    .member-name {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .gov-members-grid {
+      grid-template-columns: 1fr;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  
+    .chairman-grid,
+    .secretary-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Animation for hover effect */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+      box-shadow: 0 5px 25px rgba(193, 39, 45, 0.3);
+    }
+    100% {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .gov-member-card:hover .card-inner {
+    animation: pulse 2s infinite;
+  }
+  
+  
     </style>
 </head>
 <body>
@@ -535,6 +859,351 @@
         </div>
     </section>
 
+    <!-- Governing Body Section -->
+<section class="governing-body-section">
+    <div class="container">
+        <h2 class="section-title">Governing Body</h2>
+        <div class="section-subtitle">Leadership and Guidance</div>
+        
+        <!-- Chairman -->
+        <div class="gov-category">
+            <h3 class="gov-category-title">Chairman</h3>
+            <div class="gov-members-grid chairman-grid">
+                <div class="gov-member-card chairman-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="member-photo">
+                                <img src="/placeholder.svg?height=400&width=300" alt="Brigadier General Rezwan">
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Brigadier General Rezwan, ndc, psc</h4>
+                                <p class="member-position">Chairman</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h4 class="member-name">Brigadier General Rezwan, ndc, psc</h4>
+                            <p class="member-position">Chairman</p>
+                            <p class="member-details">Director, DP-2, DGDP</p>
+                            <div class="member-contact">
+                                <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Educationist Members -->
+        <div class="gov-category">
+            <h3 class="gov-category-title">Educationist Members</h3>
+            
+            <div class="gov-subcategory">
+                <h4 class="gov-subcategory-title">National University Representative</h4>
+                <div class="gov-members-grid">
+                    <div class="gov-member-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="member-photo">
+                                    <img src="/placeholder.svg?height=400&width=300" alt="Professor Dr. Abdus Salam">
+                                </div>
+                                <div class="member-info">
+                                    <h4 class="member-name">Professor Dr. Abdus Salam, PhD</h4>
+                                    <p class="member-position">Department of Chemistry</p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h4 class="member-name">Professor Dr. Abdus Salam, PhD</h4>
+                                <p class="member-position">Department of Chemistry</p>
+                                <p class="member-details">Dhaka University, Dhaka</p>
+                                <div class="member-contact">
+                                    <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gov-member-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="member-photo">
+                                    <img src="/placeholder.svg?height=400&width=300" alt="Lt Col Kazi Md Ashif Mostafa">
+                                </div>
+                                <div class="member-info">
+                                    <h4 class="member-name">Lt Col Kazi Md Ashif Mostafa, AEC</h4>
+                                    <p class="member-position">GSO-1, Edn Dte, AHQ</p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h4 class="member-name">Lt Col Kazi Md Ashif Mostafa, AEC</h4>
+                                <p class="member-position">GSO-1, Edn Dte, AHQ</p>
+                                <p class="member-details">BSc Hons, MSc</p>
+                                <div class="member-contact">
+                                    <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gov-subcategory">
+                <h4 class="gov-subcategory-title">Representative of Secondary and Higher Secondary Board, Dhaka</h4>
+                <div class="gov-members-grid">
+                    <div class="gov-member-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="member-photo">
+                                    <img src="/placeholder.svg?height=400&width=300" alt="Colonel Md Habibur Rahman">
+                                </div>
+                                <div class="member-info">
+                                    <h4 class="member-name">Colonel Md Habibur Rahman</h4>
+                                    <p class="member-position">COO, HQ Log Area</p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h4 class="member-name">Colonel Md Habibur Rahman, SGP, PPM, afwc, psc</h4>
+                                <p class="member-position">COO, HQ Log Area</p>
+                                <p class="member-details">Dhaka Cantt</p>
+                                <div class="member-contact">
+                                    <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gov-subcategory">
+                <h4 class="gov-subcategory-title">Representative of DG</h4>
+                <div class="gov-members-grid">
+                    <div class="gov-member-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="member-photo">
+                                    <img src="/placeholder.svg?height=400&width=300" alt="Lt Col Md Afzalur Rahman">
+                                </div>
+                                <div class="member-info">
+                                    <h4 class="member-name">Lt Col Md Afzalur Rahman</h4>
+                                    <p class="member-position">SO-1, Planning & Admin</p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h4 class="member-name">Lt Col Md Afzalur Rahman, afwc, psc, Engrs</h4>
+                                <p class="member-position">SO-1, Planning & Admin</p>
+                                <p class="member-details">DW&CE (Army), AHQ</p>
+                                <div class="member-contact">
+                                    <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Guardians' Representative -->
+        <div class="gov-category">
+            <h3 class="gov-category-title">Guardians' Representative</h3>
+            <div class="gov-members-grid">
+                <div class="gov-member-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="member-photo">
+                                <img src="/placeholder.svg?height=400&width=300" alt="Mr. Ibrahim Khalil">
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Mr. Ibrahim Khalil</h4>
+                                <p class="member-position">Joint Secretary (Retd)</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h4 class="member-name">Mr. Ibrahim Khalil</h4>
+                            <p class="member-position">Joint Secretary, Ministry of Public Administration (Retd)</p>
+                            <p class="member-details">Bangladesh Secretariat, Dhaka</p>
+                            <div class="member-contact">
+                                <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gov-member-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="member-photo">
+                                <img src="/placeholder.svg?height=400&width=300" alt="Major Md Minnat Ali">
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Major Md Minnat Ali</h4>
+                                <p class="member-position">BGBMS (LPR)</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h4 class="member-name">Major Md Minnat Ali</h4>
+                            <p class="member-position">BGBMS (LPR)</p>
+                            <div class="member-contact">
+                                <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gov-member-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="member-photo">
+                                <img src="/placeholder.svg?height=400&width=300" alt="Mr. Hasan Ahmed">
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Mr. Hasan Ahmed</h4>
+                                <p class="member-position">General Manager</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h4 class="member-name">Mr. Hasan Ahmed</h4>
+                            <p class="member-position">General Manager of Titas Gas Transmission and Distribution PLC</p>
+                            <p class="member-details">Kawran Bazar, Dhaka-1215</p>
+                            <div class="member-contact">
+                                <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Teachers' Representative -->
+        <div class="gov-category">
+            <h3 class="gov-category-title">Teachers' Representative</h3>
+            <div class="gov-members-grid">
+                <div class="gov-member-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="member-photo">
+                                <img src="/placeholder.svg?height=400&width=300" alt="Professor Dr. Fahmida Chowdhury">
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Professor Dr. Fahmida Chowdhury</h4>
+                                <p class="member-position">Vice Principal</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h4 class="member-name">Professor Dr. Fahmida Chowdhury</h4>
+                            <p class="member-position">Vice Principal</p>
+                            <p class="member-details">Adamjee Cantonment College</p>
+                            <div class="member-contact">
+                                <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gov-member-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="member-photo">
+                                <img src="/placeholder.svg?height=400&width=300" alt="Professor Dr. Md Alauddin">
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Professor Dr. Md Alauddin</h4>
+                                <p class="member-position">Dept of Economics</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h4 class="member-name">Professor Dr. Md Alauddin</h4>
+                            <p class="member-position">Dept of Economics</p>
+                            <p class="member-details">Adamjee Cantonment College</p>
+                            <div class="member-contact">
+                                <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gov-member-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="member-photo">
+                                <img src="/placeholder.svg?height=400&width=300" alt="Kamrun Nahar">
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Kamrun Nahar</h4>
+                                <p class="member-position">Associate Professor</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h4 class="member-name">Kamrun Nahar</h4>
+                            <p class="member-position">Associate Professor, Dept of Biology</p>
+                            <p class="member-details">Adamjee Cantonment College</p>
+                            <div class="member-contact">
+                                <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Doctor -->
+        <div class="gov-category">
+            <h3 class="gov-category-title">Doctor</h3>
+            <div class="gov-members-grid">
+                <div class="gov-member-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="member-photo">
+                                <img src="/placeholder.svg?height=400&width=300" alt="Dr. Md Abdur Rab">
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Dr. Md Abdur Rab (MBBS)</h4>
+                                <p class="member-position">Chief Medical Officer</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h4 class="member-name">Dr. Md Abdur Rab (MBBS)</h4>
+                            <p class="member-position">Chief Medical Officer</p>
+                            <p class="member-details">Siraj-Khaleda Memorial Cantonment Board General Hospital, Dhaka Cantonment</p>
+                            <div class="member-contact">
+                                <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Member Secretary -->
+        <div class="gov-category">
+            <h3 class="gov-category-title">Member Secretary</h3>
+            <div class="gov-members-grid secretary-grid">
+                <div class="gov-member-card secretary-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="member-photo">
+                                <img src="pp.png" alt="Brigadier General A B M Nowroj Ehsan">
+                            </div>
+                            <div class="member-info">
+                                <h4 class="member-name">Brigadier General A B M Nowroj Ehsan</h4>
+                                <p class="member-position">Principal</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h4 class="member-name">Brigadier General A B M Nowroj Ehsan, BSP, BGOM, ndc, psc</h4>
+                            <p class="member-position">Principal</p>
+                            <p class="member-details">Adamjee Cantonment College</p>
+                            <div class="member-contact">
+                                <a href="#" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -649,6 +1318,80 @@
                 ease: 'power3.out'
             });
         });
+
+        // Governing Body Section Animation
+document.addEventListener("DOMContentLoaded", () => {
+    // Animation for governing body categories
+    const governingCategories = document.querySelectorAll(".gov-category")
+  
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Add a delay based on the index for staggered animation
+            setTimeout(() => {
+              entry.target.classList.add("animate")
+            }, index * 200)
+  
+            // Stop observing once animated
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      },
+    )
+  
+    // Observe each category
+    governingCategories.forEach((category) => {
+      observer.observe(category)
+    })
+  
+    // Add hover effect for member cards
+    const memberCards = document.querySelectorAll(".gov-member-card")
+  
+    memberCards.forEach((card) => {
+      // Add subtle movement on mouse move for 3D effect
+      card.addEventListener("mousemove", function (e) {
+        const cardRect = this.getBoundingClientRect()
+        const cardCenterX = cardRect.left + cardRect.width / 2
+        const cardCenterY = cardRect.top + cardRect.height / 2
+        const mouseX = e.clientX
+        const mouseY = e.clientY
+  
+        // Calculate rotation based on mouse position
+        const rotateY = (mouseX - cardCenterX) / 20
+        const rotateX = (cardCenterY - mouseY) / 20
+  
+        // Apply subtle rotation when not flipped
+        if (!this.querySelector(".card-inner").style.transform.includes("rotateY(180deg)")) {
+          this.querySelector(".card-inner").style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`
+        }
+      })
+  
+      // Reset rotation when mouse leaves
+      card.addEventListener("mouseleave", function () {
+        if (!this.querySelector(".card-inner").style.transform.includes("rotateY(180deg)")) {
+          this.querySelector(".card-inner").style.transform = "rotateY(0deg) rotateX(0deg)"
+        }
+      })
+  
+      // Handle click to flip card
+      card.addEventListener("click", function () {
+        const cardInner = this.querySelector(".card-inner")
+        if (cardInner.style.transform.includes("rotateY(180deg)")) {
+          cardInner.style.transform = "rotateY(0deg)"
+        } else {
+          cardInner.style.transform = "rotateY(180deg)"
+        }
+      })
+    })
+  })
+  
+  
     </script>
 </body>
 </html>
