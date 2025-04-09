@@ -253,6 +253,37 @@
                 height: 200px;
             }
         }
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .fee-table th, .fee-table td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .fee-table th {
+            background-color: var(--background-light);
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .fee-table td {
+            color: var(--text-muted);
+        }
+        
+        .fee-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .fee-table .fee-amount {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
     </style>
 </head>
 <body>
@@ -271,7 +302,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="academics.html" class="active">Academics</a></li>
-                    <li><a href="admissions.html">Admissions</a></li>
+                    <!-- <li><a href="admissions.html">Admissions</a></li> -->
                     <li><a href="library-standalone.html">Library</a></li>
                     <li><a href="campus-life.html">Campus Life</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -297,7 +328,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="academics.html">Academics</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
+                <!-- <li><a href="admissions.html">Admissions</a></li> -->
                 <!-- <li><a href="research.html">Research</a></li> -->
                 <li><a href="campus-life.html">Campus Life</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -613,16 +644,72 @@
         </div>
     </section>
 
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title">Tuition & Fees</h2>
+            <p>Adamjee Cantonment College is committed to providing quality education at an affordable cost. The following table outlines the tuition and fees for the 2025-2026 academic year:</p>
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Program</th>
+                        <th>Tuition (per semester)</th>
+                        <th>Registration Fee</th>
+                        <th>Other Fees</th>
+                        <th>Total (first semester)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bachelor of Science in Computer Science</td>
+                        <td class="fee-amount">৳ 50,000</td>
+                        <td>৳ 5,000</td>
+                        <td>৳ 10,000</td>
+                        <td class="fee-amount">৳ 65,000</td>
+                    </tr>
+                    <tr>
+                        <td>Bachelor of Business Administration</td>
+                        <td class="fee-amount">৳ 45,000</td>
+                        <td>৳ 5,000</td>
+                        <td>৳ 10,000</td>
+                        <td class="fee-amount">৳ 60,000</td>
+                    </tr>
+                    <tr>
+                        <td>Bachelor of Science in Electrical Engineering</td>
+                        <td class="fee-amount">৳ 55,000</td>
+                        <td>৳ 5,000</td>
+                        <td>৳ 12,000</td>
+                        <td class="fee-amount">৳ 72,000</td>
+                    </tr>
+                    <tr>
+                        <td>Master of Science in Computer Science</td>
+                        <td class="fee-amount">৳ 60,000</td>
+                        <td>৳ 5,000</td>
+                        <td>৳ 10,000</td>
+                        <td class="fee-amount">৳ 75,000</td>
+                    </tr>
+                    <tr>
+                        <td>Diploma in Information Technology</td>
+                        <td class="fee-amount">৳ 30,000</td>
+                        <td>৳ 3,000</td>
+                        <td>৳ 7,000</td>
+                        <td class="fee-amount">৳ 40,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="form-note">Note: Tuition and fees are subject to change. Please contact the Admissions Office for the most up-to-date information.</p>
+        </div>
+    </section>
+
     <!-- Faculty Section -->
     <section class="page-section">
         <div class="container">
             <h2 class="section-title centered">Our Faculty</h2>
             <p class="text-center">Our faculty members are experts in their fields, committed to providing quality education and mentoring students to achieve their full potential.</p>
             <div class="faculty-card">
-                <img src="-----" alt="Dr. John Smith" class="faculty-img">
+                <img src="pp.png" alt="Principal" class="faculty-img">
                 <div class="faculty-info">
-                    <h3 class="faculty-name">Dr. John Smith</h3>
-                    <p class="faculty-position">Professor, Computer Science & Engineering</p>
+                    <h3 class="faculty-name">Brigadier General A B M Nowroj Ehsan, BSP, BGOM, ndc, psc</h3>
+                    <p class="faculty-position">Principal Of Adamjee Cantonment college</p>
                     <p class="faculty-bio">Dr. Smith has over 20 years of experience in computer science research and teaching. His areas of expertise include artificial intelligence, machine learning, and data mining. He has published numerous papers in top-tier journals and conferences.</p>
                     <div class="faculty-contact">
                         <a href="#"><i class="fas fa-envelope"></i> Email</a>
@@ -631,7 +718,7 @@
                 </div>
             </div>
             <div class="faculty-card">
-                <img src="pp.png" alt="Dr. Sarah Johnson" class="faculty-img">
+                <img src="----" alt="Dr. Sarah Johnson" class="faculty-img">
                 <div class="faculty-info">
                     <h3 class="faculty-name">Dr. Sarah Johnson</h3>
                     <p class="faculty-position">Associate Professor, Business Administration</p>
@@ -655,7 +742,7 @@
                 </div>
             </div>
             <div class="text-center"><br>
-                <button class="outline-btn">View All Faculty</button>
+                <a href="faculty.html">  <button class="outline-btn">View All Faculty</button> </a>
             </div>
         </div>
     </section>
