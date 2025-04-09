@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Faculties | Educational Institution</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="faculty.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <img src="acclogo.png" alt="College Logo">
+          <div class="logo-text">
+            <span class="logo-title">Adamjee Cantonment College</span>
+            <span class="logo-subtitle">Education | Discipline | Morality</span>
+          </div>
+        </a>
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faculties">Faculties</a></li>
+          <li><a href="#academics">Academics</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" class="login-btn">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Important Notices -->
+  <section class="notices-section">
+    <div class="container">
+      <div class="notices-header">
+        <i class="fas fa-bullhorn"></i> Important Notices
+      </div>
+      <div class="notices-slider" id="noticesSlider">
+        <div class="notice-item active">
+          <div class="notice-tag">Event</div>
+          <div class="notice-content">
+            <h3>Annual Faculty Conference - May 15, 2025</h3>
+            <div class="notice-meta">
+              <span>Published: April 5, 2025</span>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="notice-item">
+          <div class="notice-tag">Announcement</div>
+          <div class="notice-content">
+            <h3>New Faculty of Technology Opening - September 2025</h3>
+            <div class="notice-meta">
+              <span>Published: April 2, 2025</span>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="notice-item">
+          <div class="notice-tag">News</div>
+          <div class="notice-content">
+            <h3>Faculty Research Grants Announced for 2025-2026</h3>
+            <div class="notice-meta">
+              <span>Published: March 28, 2025</span>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="notices-controls">
+        <button class="notice-arrow prev" id="noticePrev"><i class="fas fa-chevron-left"></i></button>
+        <div class="notice-dots">
+          <span class="notice-dot active" data-index="0"></span>
+          <span class="notice-dot" data-index="1"></span>
+          <span class="notice-dot" data-index="2"></span>
+        </div>
+        <button class="notice-arrow next" id="noticeNext"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="hero-slider">
+    <div class="hero-slide active">
+      <div class="hero-image" style="background-image: url('campus2.jpg');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <h1>Excellence in Education</h1>
+            <p>Our institution is committed to providing quality education and fostering innovation since 1965</p>
+            <a href="#faculties" class="btn btn-primary">Explore Faculties</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <div class="hero-image" style="background-image: url('campus1.jpg');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <h1>World-Class Faculty</h1>
+            <p>Learn from distinguished professors who are leaders in their fields</p>
+            <a href="#faculty-members" class="btn btn-primary">Meet Our Faculty</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <div class="hero-image" style="background-image: url('campus3.jpg');">
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <h1>Innovative Research</h1>
+            <p>Discover groundbreaking research opportunities across all our faculties</p>
+            <a href="#research" class="btn btn-primary">Explore Research</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-controls">
+      <button class="hero-arrow prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+      <div class="hero-dots">
+        <span class="hero-dot active" data-index="0"></span>
+        <span class="hero-dot" data-index="1"></span>
+        <span class="hero-dot" data-index="2"></span>
+      </div>
+      <button class="hero-arrow next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- Faculties Section -->
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Section</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1A237E; /* Dark blue as requested */
+      --secondary-color: #C1272D; /* Red as requested */
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 8px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-gray);
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-top: 3rem;
+    }
+    
+    .section-title {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+      color: var(--primary-color);
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--secondary-color);
+    }
+    
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 3rem;
+    }
+    
+    .faculty-card {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      border-top: 5px solid var(--primary-color);
+      height: 100%;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .faculty-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--secondary-color);
+    }
+    
+    .faculty-content {
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .faculty-icon {
+      width: 80px;
+      height: 80px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .faculty-card:hover .faculty-icon {
+      background-color: var(--secondary-color);
+      transform: scale(1.1);
+    }
+    
+    .faculty-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      transition: var(--transition);
+    }
+    
+    .faculty-card:hover h3 {
+      color: var(--secondary-color);
+    }
+    
+    .faculty-card p {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .department-list {
+      margin: 1.5rem 0;
+      text-align: left;
+      padding-left: 1.5rem;
+    }
+    
+    .department-list li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      list-style-type: none;
+    }
+    
+    .department-list li::before {
+      content: '•';
+      color: var(--secondary-color);
+      position: absolute;
+      left: -1rem;
+    }
+    
+    .explore-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border-radius: 4px;
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    
+    .explore-btn span {
+      margin-right: 8px;
+    }
+    
+    .explore-btn i {
+      transition: transform 0.3s ease;
+    }
+    
+    .faculty-card:hover .explore-btn {
+      background-color: var(--secondary-color);
+    }
+    
+    .faculty-card:hover .explore-btn i {
+      transform: translateX(5px);
+    }
+    
+    @media (max-width: 768px) {
+      .faculty-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section id="faculties" class="faculties-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Faculties</h2>
+        <p class="section-subtitle">Discover our diverse academic departments and programs</p>
+      </div>
+      
+      <div class="faculty-grid">
+        <!-- Faculty of Science -->
+        <a href="science.html" class="faculty-card">
+          <div class="faculty-content">
+            <div class="faculty-icon">
+              <i class="fas fa-atom"></i>
+            </div>
+            <h3>Faculty of Science</h3>
+            <p>Exploring the natural world through research and innovation</p>
+            <ul class="department-list">
+              <li>Physics</li>
+              <li>Chemistry</li>
+              <li>Biology</li>
+              <li>Mathematics</li>
+              <li>Computer Science</li>
+            </ul>
+            <div class="explore-btn">
+              <span>Explore Faculty</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Faculty of Arts & Humanities -->
+        <a href="faculties/arts.html" class="faculty-card">
+          <div class="faculty-content">
+            <div class="faculty-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3>Faculty of Arts & Humanities</h3>
+            <p>Cultivating creativity, critical thinking, and cultural understanding</p>
+            <ul class="department-list">
+              <li>English</li>
+              <li>History</li>
+              <li>Philosophy</li>
+              <li>Languages</li>
+              <li>Fine Arts</li>
+            </ul>
+            <div class="explore-btn">
+              <span>Explore Faculty</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Faculty of Commerce -->
+        <a href="faculties/commerce.html" class="faculty-card">
+          <div class="faculty-content">
+            <div class="faculty-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Faculty of Commerce</h3>
+            <p>Developing business leaders for a global economy</p>
+            <ul class="department-list">
+              <li>Accounting</li>
+              <li>Finance</li>
+              <li>Marketing</li>
+              <li>Management</li>
+              <li>Economics</li>
+            </ul>
+            <div class="explore-btn">
+              <span>Explore Faculty</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Simple hover animation for faculty cards
+    document.querySelectorAll('.faculty-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.querySelector('.faculty-icon').style.transform = 'scale(1.1)';
+        this.querySelector('.explore-btn i').style.transform = 'translateX(5px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.querySelector('.faculty-icon').style.transform = 'scale(1)';
+        this.querySelector('.explore-btn i').style.transform = 'translateX(0)';
+      });
+    });
+  </script>
+</body>
+</html>
+
+  <!-- Faculty Stats -->
+  <section class="faculty-stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" data-count="3">0</div>
+          <div class="stat-label">Faculties</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="15">0</div>
+          <div class="stat-label">Departments</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="200">0</div>
+          <div class="stat-label">Faculty Members</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="5000">0</div>
+          <div class="stat-label">Students</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Educational Institution</h3>
+          <p>Providing quality education and fostering academic excellence since 1965.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faculties">Faculties</a></li>
+            <li><a href="#academics">Academics</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Faculties</h3>
+          <ul class="footer-links">
+            <li><a href="faculties/science.html">Faculty of Science</a></li>
+            <li><a href="faculties/arts.html">Faculty of Arts & Humanities</a></li>
+            <li><a href="faculties/commerce.html">Faculty of Commerce</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Resources</h3>
+          <ul class="footer-links">
+            <li><a href="#">Student Portal</a></li>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Career Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Educational Institution. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="faculty.js"></script>
+</body>
+</html>

@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty of Science | Adamjee Cantonment College</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1A237E; /* Dark blue as requested */
+      --secondary-color: #C1272D; /* Red as requested */
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --medium-gray: #e0e0e0;
+      --dark-gray: #444444;
+      --text-color: #333333;
+      --text-light: #666666;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 8px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: var(--light-gray);
+      overflow-x: hidden;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-20px); }
+      60% { transform: translateY(-10px); }
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+    
+    @keyframes gradientBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Particle Animation */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      pointer-events: none;
+    }
+    
+    /* Header Styles */
+    .header {
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: var(--transition);
+      animation: fadeInDown 0.8s ease-out;
+    }
+    
+    .header.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+      animation: pulse 2s infinite;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .logo-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary-color);
+    }
+    
+    .logo-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    
+    .nav-links li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links li:nth-child(5) { animation-delay: 0.5s; }
+    .nav-links li:nth-child(6) { animation-delay: 0.6s; }
+    
+    .nav-links a {
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--secondary-color);
+    }
+    
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    
+    .nav-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: var(--primary-color);
+      margin: 2px 0;
+      transition: var(--transition);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 8rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1A237E 0%, #303F9F 50%, #1A237E 100%);
+      background-size: 200% 200%;
+      animation: gradientBg 15s ease infinite;
+    }
+    
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+      background-size: 30px 30px;
+      opacity: 0.5;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+      font-weight: 700;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out 0.4s forwards;
+    }
+    
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-item {
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .stat-item:nth-child(1) { animation-delay: 0.6s; }
+    .stat-item:nth-child(2) { animation-delay: 0.8s; }
+    .stat-item:nth-child(3) { animation-delay: 1.0s; }
+    .stat-item:nth-child(4) { animation-delay: 1.2s; }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      position: relative;
+    }
+    
+    .stat-number::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary-color);
+      transition: width 0.5s ease;
+    }
+    
+    .stat-item:hover .stat-number::after {
+      width: 80%;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Department Navigation */
+    .department-nav {
+      background-color: var(--white);
+      padding: 3rem 0;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      animation: fadeIn 1s ease-out 1s forwards;
+      opacity: 0;
+    }
+    
+    .department-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .department-button {
+      background-color: var(--light-gray);
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      padding: 12px 24px;
+      border-radius: var(--border-radius);
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeInUp 0.5s ease-out forwards;
+    }
+    
+    .department-button:nth-child(1) { animation-delay: 0.1s; }
+    .department-button:nth-child(2) { animation-delay: 0.2s; }
+    .department-button:nth-child(3) { animation-delay: 0.3s; }
+    .department-button:nth-child(4) { animation-delay: 0.4s; }
+    .department-button:nth-child(5) { animation-delay: 0.5s; }
+    .department-button:nth-child(6) { animation-delay: 0.6s; }
+    
+    .department-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .department-button:hover::before {
+      left: 100%;
+    }
+    
+    .department-button:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .department-button.active {
+      background-color: var(--primary-color);
+      color: var(--white);
+      animation: pulse 2s infinite;
+    }
+    
+    .department-button i {
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .department-button:hover i {
+      transform: rotate(360deg);
+    }
+    
+    /* Department Sections */
+    .departments-container {
+      padding: 4rem 0;
+    }
+    
+    .department-section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--medium-gray);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .department-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .department-section:last-child {
+      border-bottom: none;
+    }
+    
+    .department-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .department-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-right: 1.5rem;
+      transition: var(--transition);
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .department-section:hover .department-icon {
+      background-color: var(--secondary-color);
+      transform: scale(1.1);
+    }
+    
+    .department-title {
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+    }
+    
+    .department-section:hover .department-title {
+      color: var(--secondary-color);
+    }
+    
+    .department-subtitle {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+    
+    .department-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .department-text {
+      color: var(--text-color);
+    }
+    
+    .department-text p {
+      margin-bottom: 1rem;
+      transform: translateX(-20px);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    
+    .department-section.visible .department-text p {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    .department-section.visible .department-text p:nth-child(1) { transition-delay: 0.2s; }
+    .department-section.visible .department-text p:nth-child(2) { transition-delay: 0.4s; }
+    
+    .department-text ul {
+      list-style-type: none;
+      margin: 1.5rem 0;
+    }
+    
+    .department-text li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+      transform: translateX(-20px);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    
+    .department-section.visible .department-text li {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    .department-section.visible .department-text li:nth-child(1) { transition-delay: 0.5s; }
+    .department-section.visible .department-text li:nth-child(2) { transition-delay: 0.6s; }
+    .department-section.visible .department-text li:nth-child(3) { transition-delay: 0.7s; }
+    .department-section.visible .department-text li:nth-child(4) { transition-delay: 0.8s; }
+    .department-section.visible .department-text li:nth-child(5) { transition-delay: 0.9s; }
+    
+    .department-text li::before {
+      content: '•';
+      color: var(--secondary-color);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+    }
+    
+    .department-image {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transform: translateX(20px);
+      opacity: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.3s ease;
+    }
+    
+    .department-section.visible .department-image {
+      transform: translateX(0);
+      opacity: 1;
+      transition-delay: 0.3s;
+    }
+    
+    .department-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .department-image:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .department-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: var(--secondary-color);
+      color: var(--white);
+      border-radius: var(--border-radius);
+      font-weight: 500;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .department-section.visible .cta-button {
+      transform: translateY(0);
+      opacity: 1;
+      transition-delay: 1s;
+    }
+    
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .cta-button:hover::before {
+      left: 100%;
+    }
+    
+    .cta-button:hover {
+      background-color: #a11f24; /* Darker red */
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .cta-button i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .cta-button:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 2px, transparent 2px);
+      background-size: 20px 20px;
+      opacity: 0.5;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease-out forwards;
+    }
+    
+    .footer-section:nth-child(1) { animation-delay: 0.1s; }
+    .footer-section:nth-child(2) { animation-delay: 0.2s; }
+    .footer-section:nth-child(3) { animation-delay: 0.3s; }
+    .footer-section:nth-child(4) { animation-delay: 0.4s; }
+    
+    .footer-title {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+    
+    .footer-section:hover .footer-title::after {
+      width: 80px;
+    }
+    
+    .footer-section p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .social-links a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      text-decoration: none;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.5s ease-out forwards;
+    }
+    
+    .social-links a:nth-child(1) { animation-delay: 0.5s; }
+    .social-links a:nth-child(2) { animation-delay: 0.6s; }
+    .social-links a:nth-child(3) { animation-delay: 0.7s; }
+    .social-links a:nth-child(4) { animation-delay: 0.8s; }
+    .social-links a:nth-child(5) { animation-delay: 0.9s; }
+    
+    .social-links a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+      transform: translateX(-20px);
+      opacity: 0;
+      animation: fadeInRight 0.5s ease-out forwards;
+    }
+    
+    .footer-links li:nth-child(1) { animation-delay: 0.1s; }
+    .footer-links li:nth-child(2) { animation-delay: 0.2s; }
+    .footer-links li:nth-child(3) { animation-delay: 0.3s; }
+    .footer-links li:nth-child(4) { animation-delay: 0.4s; }
+    .footer-links li:nth-child(5) { animation-delay: 0.5s; }
+    .footer-links li:nth-child(6) { animation-delay: 0.6s; }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--secondary-color);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+      text-decoration: none;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+      animation: bounce 2s infinite;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.25rem;
+      }
+      
+      .department-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .department-image {
+        order: -1;
+        margin-bottom: 2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      
+      .nav-links li {
+        margin: 1rem 0;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .department-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .department-button {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .department-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .department-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 1.75rem;
+      }
+      
+      .hero-stats {
+        gap: 1.5rem;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .department-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="../index.html" class="logo">
+          <img src="acclogo.png" alt="College Logo">
+          <div class="logo-text">
+            <span class="logo-title">Adamjee Cantonment College</span>
+            <span class="logo-subtitle">Education | Discipline | Morality</span>
+          </div>
+        </a>
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#faculties" class="active">Faculties</a></li>
+          <li><a href="../index.html#academics">Academics</a></li>
+          <li><a href="../index.html#admissions">Admissions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="particles" id="particles"></div>
+    <div class="hero-pattern"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Faculty of Science</h1>
+        <p class="hero-subtitle">Exploring the natural world through research and innovation</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number" data-count="6">0</div>
+            <div class="stat-label">DEPARTMENTS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="80">0</div>
+            <div class="stat-label">FACULTY MEMBERS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="1500">0</div>
+            <div class="stat-label">STUDENTS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="25">0</div>
+            <div class="stat-label">RESEARCH LABS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Department Navigation -->
+  <section class="department-nav">
+    <div class="container">
+      <h2 class="section-title">Our Departments</h2>
+      <div class="department-buttons">
+        <a href="#physics" class="department-button">
+          <i class="fas fa-atom"></i> Physics
+        </a>
+        <a href="#chemistry" class="department-button">
+          <i class="fas fa-flask"></i> Chemistry
+        </a>
+        <a href="#biology" class="department-button">
+          <i class="fas fa-dna"></i> Biology
+        </a>
+        <a href="#mathematics" class="department-button">
+          <i class="fas fa-square-root-alt"></i> Mathematics
+        </a>
+        <a href="#computer-science" class="department-button">
+          <i class="fas fa-laptop-code"></i> Computer Science
+        </a>
+        <a href="#engineering" class="department-button">
+          <i class="fas fa-drafting-compass"></i> Engineering & Drawing
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Department Sections -->
+  <div class="departments-container">
+    <div class="container">
+      <!-- Physics Department -->
+      <section id="physics" class="department-section">
+        <div class="department-header">
+          <div class="department-icon">
+            <i class="fas fa-atom"></i>
+          </div>
+          <div>
+            <h2 class="department-title">Department of Physics</h2>
+            <p class="department-subtitle">Exploring the fundamental laws of the universe</p>
+          </div>
+        </div>
+        <div class="department-content">
+          <div class="department-text">
+            <p>The Department of Physics offers comprehensive programs that explore the fundamental principles governing the universe, from subatomic particles to cosmic structures.</p>
+            <p>Our faculty members are engaged in cutting-edge research across various fields of physics, providing students with opportunities to participate in groundbreaking discoveries.</p>
+            <ul>
+              <li>Quantum Physics and Field Theory</li>
+              <li>Condensed Matter Physics</li>
+              <li>Astrophysics and Cosmology</li>
+              <li>Nuclear and Particle Physics</li>
+              <li>Applied Physics and Instrumentation</li>
+            </ul>
+            <a href="#" class="cta-button">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="department-image">
+            <img src="https://via.placeholder.com/600x400" alt="Physics Department">
+          </div>
+        </div>
+      </section>
+
+      <!-- Chemistry Department -->
+      <section id="chemistry" class="department-section">
+        <div class="department-header">
+          <div class="department-icon">
+            <i class="fas fa-flask"></i>
+          </div>
+          <div>
+            <h2 class="department-title">Department of Chemistry</h2>
+            <p class="department-subtitle">Understanding matter and its transformations</p>
+          </div>
+        </div>
+        <div class="department-content">
+          <div class="department-text">
+            <p>The Department of Chemistry is dedicated to advancing knowledge in the molecular sciences and training the next generation of chemists through rigorous academic programs and research opportunities.</p>
+            <p>Our state-of-the-art laboratories and experienced faculty provide an ideal environment for exploring the fascinating world of chemical reactions and material properties.</p>
+            <ul>
+              <li>Organic and Inorganic Chemistry</li>
+              <li>Physical Chemistry and Spectroscopy</li>
+              <li>Analytical Chemistry</li>
+              <li>Biochemistry and Molecular Biology</li>
+              <li>Materials Science and Nanotechnology</li>
+            </ul>
+            <a href="#" class="cta-button">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="department-image">
+            <img src="https://via.placeholder.com/600x400" alt="Chemistry Department">
+          </div>
+        </div>
+      </section>
+
+      <!-- Biology Department -->
+      <section id="biology" class="department-section">
+        <div class="department-header">
+          <div class="department-icon">
+            <i class="fas fa-dna"></i>
+          </div>
+          <div>
+            <h2 class="department-title">Department of Biology</h2>
+            <p class="department-subtitle">Studying life and living organisms</p>
+          </div>
+        </div>
+        <div class="department-content">
+          <div class="department-text">
+            <p>The Department of Biology offers comprehensive programs that explore the diversity, structure, function, and evolution of living organisms from the molecular to the ecosystem level.</p>
+            <p>Our curriculum combines theoretical knowledge with practical laboratory experience, field studies, and research opportunities to prepare students for careers in biological sciences.</p>
+            <ul>
+              <li>Molecular and Cell Biology</li>
+              <li>Genetics and Genomics</li>
+              <li>Ecology and Environmental Biology</li>
+              <li>Microbiology and Immunology</li>
+              <li>Plant and Animal Sciences</li>
+            </ul>
+            <a href="#" class="cta-button">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="department-image">
+            <img src="https://via.placeholder.com/600x400" alt="Biology Department">
+          </div>
+        </div>
+      </section>
+
+      <!-- Mathematics Department -->
+      <section id="mathematics" class="department-section">
+        <div class="department-header">
+          <div class="department-icon">
+            <i class="fas fa-square-root-alt"></i>
+          </div>
+          <div>
+            <h2 class="department-title">Department of Mathematics</h2>
+            <p class="department-subtitle">The language of science and logic</p>
+          </div>
+        </div>
+        <div class="department-content">
+          <div class="department-text">
+            <p>The Department of Mathematics provides a strong foundation in mathematical theory, computational techniques, and applications across various scientific disciplines.</p>
+            <p>Our programs emphasize analytical thinking, problem-solving skills, and the ability to formulate and solve complex mathematical models for real-world problems.</p>
+            <ul>
+              <li>Pure Mathematics</li>
+              <li>Applied Mathematics</li>
+              <li>Statistics and Probability</li>
+              <li>Mathematical Modeling</li>
+              <li>Computational Mathematics</li>
+            </ul>
+            <a href="#" class="cta-button">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="department-image">
+            <img src="https://via.placeholder.com/600x400" alt="Mathematics Department">
+          </div>
+        </div>
+      </section>
+
+      <!-- Computer Science Department -->
+      <section id="computer-science" class="department-section">
+        <div class="department-header">
+          <div class="department-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div>
+            <h2 class="department-title">Department of Computer Science</h2>
+            <p class="department-subtitle">Advancing technology through computation</p>
+          </div>
+        </div>
+        <div class="department-content">
+          <div class="department-text">
+            <p>The Department of Computer Science offers cutting-edge programs that prepare students for careers in the rapidly evolving field of computing and information technology.</p>
+            <p>Our curriculum covers theoretical foundations, practical programming skills, and specialized areas such as artificial intelligence, data science, and cybersecurity.</p>
+            <ul>
+              <li>Algorithms and Data Structures</li>
+              <li>Artificial Intelligence and Machine Learning</li>
+              <li>Database Systems and Big Data</li>
+              <li>Computer Networks and Security</li>
+              <li>Software Engineering and Development</li>
+            </ul>
+            <a href="#" class="cta-button">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="department-image">
+            <img src="https://via.placeholder.com/600x400" alt="Computer Science Department">
+          </div>
+        </div>
+      </section>
+
+      <!-- Engineering and Drawing Department -->
+      <section id="engineering" class="department-section">
+        <div class="department-header">
+          <div class="department-icon">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+          <div>
+            <h2 class="department-title">Department of Engineering and Drawing</h2>
+            <p class="department-subtitle">Visualizing and designing the future</p>
+          </div>
+        </div>
+        <div class="department-content">
+          <div class="department-text">
+            <p>The Department of Engineering and Drawing focuses on developing technical drawing skills, spatial visualization abilities, and engineering design principles essential for various scientific and technical fields.</p>
+            <p>Our programs combine traditional drafting techniques with modern computer-aided design tools to prepare students for careers in engineering, architecture, and technical illustration.</p>
+            <ul>
+              <li>Technical Drawing and Drafting</li>
+              <li>Computer-Aided Design (CAD)</li>
+              <li>Engineering Graphics</li>
+              <li>3D Modeling and Visualization</li>
+              <li>Design Principles and Applications</li>
+            </ul>
+            <a href="#" class="cta-button">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="department-image">
+            <img src="https://via.placeholder.com/600x400" alt="Engineering and Drawing Department">
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Faculty of Science</h3>
+          <p>Exploring the natural world through research and innovation since 1965.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#faculties">Faculties</a></li>
+            <li><a href="../index.html#academics">Academics</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Departments</h3>
+          <ul class="footer-links">
+            <li><a href="#physics">Physics</a></li>
+            <li><a href="#chemistry">Chemistry</a></li>
+            <li><a href="#biology">Biology</a></li>
+            <li><a href="#mathematics">Mathematics</a></li>
+            <li><a href="#computer-science">Computer Science</a></li>
+            <li><a href="#engineering">Engineering & Drawing</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Contact Us</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt"></i> Science Building, Main Campus</li>
+            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+            <li><i class="fas fa-envelope"></i> science@education.edu</li>
+            <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Faculty of Science, Educational Institution. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize variables
+      const header = document.querySelector('.header');
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+      const backToTopBtn = document.getElementById('backToTop');
+      const departmentButtons = document.querySelectorAll('.department-button');
+      const departmentSections = document.querySelectorAll('.department-section');
+      
+      // Create particles for hero section
+      createParticles();
+      
+      // Animate stats counter
+      animateStatCounters();
+      
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Mobile navigation toggle
+      if (navToggle) {
+        navToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          navToggle.classList.toggle('active');
+        });
+      }
+      
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('active');
+          if (navToggle) navToggle.classList.remove('active');
+        });
+      });
+      
+      // Back to top button
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('active');
+        } else {
+          backToTopBtn.classList.remove('active');
+        }
+      });
+      
+      backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Check if element is in viewport
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+          rect.bottom >= 0
+        );
+      }
+      
+      // Animate elements when scrolled into view
+      function animateOnScroll() {
+        departmentSections.forEach(section => {
+          if (isInViewport(section)) {
+            section.classList.add('visible');
+          }
+        });
+      }
+      
+      // Initial check for elements in viewport
+      animateOnScroll();
+      
+      // Check for elements in viewport on scroll
+      window.addEventListener('scroll', animateOnScroll);
+      
+      // Active department button on scroll
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+        
+        document.querySelectorAll('.department-section').forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            departmentButtons.forEach(button => {
+              button.classList.remove('active');
+              if (button.getAttribute('href') === `#${sectionId}`) {
+                button.classList.add('active');
+              }
+            });
+          }
+        });
+      });
+      
+      // Smooth scrolling for department buttons
+      departmentButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          
+          window.scrollTo({
+            top: targetSection.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Create particles for hero section
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        if (!particlesContainer) return;
+        
+        const particleCount = 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          
+          // Random size between 2px and 6px
+          const size = Math.random() * 4 + 2;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          
+          // Random position
+          const posX = Math.random() * 100;
+          const posY = Math.random() * 100;
+          particle.style.left = `${posX}%`;
+          particle.style.top = `${posY}%`;
+          
+          // Random animation duration between 10s and 20s
+          const duration = Math.random() * 10 + 10;
+          particle.style.animation = `float ${duration}s ease-in-out infinite`;
+          
+          // Random animation delay
+          const delay = Math.random() * 5;
+          particle.style.animationDelay = `${delay}s`;
+          
+          // Random opacity between 0.1 and 0.5
+          const opacity = Math.random() * 0.4 + 0.1;
+          particle.style.opacity = opacity;
+          
+          particlesContainer.appendChild(particle);
+        }
+      }
+      
+      // Animate stats counter
+      function animateStatCounters() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        statNumbers.forEach(stat => {
+          const target = parseInt(stat.getAttribute('data-count'));
+          const duration = 2000; // 2 seconds
+          const startTime = Date.now();
+          const startValue = 0;
+          
+          function updateCounter() {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - startTime;
+            
+            if (elapsedTime < duration) {
+              const progress = elapsedTime / duration;
+              const currentValue = Math.floor(startValue + progress * (target - startValue));
+              stat.textContent = currentValue + (stat.textContent.includes('+') ? '+' : '');
+              requestAnimationFrame(updateCounter);
+            } else {
+              stat.textContent = target + (target >= 80 ? '+' : '');
+            }
+          }
+          
+          // Start the animation when the element is in viewport
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                requestAnimationFrame(updateCounter);
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.5 });
+          
+          observer.observe(stat);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
