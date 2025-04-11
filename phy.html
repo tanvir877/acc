@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department of Physics | Faculty of Science</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1A237E; /* Dark blue as requested */
+      --primary-light: #303F9F;
+      --secondary-color: #C1272D; /* Red as requested */
+      --white: #ffffff;
+      --light-gray: #f5f5f5;
+      --medium-gray: #e0e0e0;
+      --dark-gray: #444444;
+      --text-color: #333333;
+      --text-light: #666666;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 8px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: var(--white);
+      overflow-x: hidden;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: var(--shadow-sm); }
+      50% { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
+      100% { transform: scale(1); box-shadow: var(--shadow-sm); }
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -100% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    @keyframes wave {
+      0% { transform: translateX(0) translateZ(0) scaleY(1); }
+      50% { transform: translateX(-25%) translateZ(0) scaleY(0.8); }
+      100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Interactive Background */
+    .interactive-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      overflow: hidden;
+    }
+
+    .bg-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 25px 25px, rgba(26, 35, 126, 0.03) 2%, transparent 0%),
+        radial-gradient(circle at 75px 75px, rgba(26, 35, 126, 0.03) 2%, transparent 0%);
+      background-size: 100px 100px;
+      opacity: 0.5;
+    }
+
+    .bg-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .bg-shape {
+      position: absolute;
+      background-color: rgba(26, 35, 126, 0.05);
+      border-radius: 50%;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    .bg-shape:nth-child(1) {
+      width: 300px;
+      height: 300px;
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+      animation-duration: 20s;
+    }
+
+    .bg-shape:nth-child(2) {
+      width: 200px;
+      height: 200px;
+      top: 60%;
+      left: 80%;
+      animation-delay: 2s;
+      animation-duration: 18s;
+    }
+
+    .bg-shape:nth-child(3) {
+      width: 150px;
+      height: 150px;
+      top: 30%;
+      left: 70%;
+      animation-delay: 4s;
+      animation-duration: 16s;
+    }
+
+    .bg-shape:nth-child(4) {
+      width: 250px;
+      height: 250px;
+      top: 70%;
+      left: 20%;
+      animation-delay: 6s;
+      animation-duration: 22s;
+    }
+
+    .bg-shape:nth-child(5) {
+      width: 180px;
+      height: 180px;
+      top: 40%;
+      left: 40%;
+      animation-delay: 8s;
+      animation-duration: 19s;
+    }
+    
+    /* Particle Animation */
+    .particles-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+      pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Atom Orbit Animation */
+    .atom-orbit {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: rotate 15s linear infinite;
+    }
+    
+    .electron {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--secondary-color);
+      border-radius: 50%;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px var(--secondary-color);
+    }
+    
+    /* Header Styles */
+    .header {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: var(--transition);
+      animation: fadeInDown 0.5s ease-out;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .logo-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary-color);
+    }
+    
+    .logo-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    
+    .nav-links a {
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+      padding: 5px 0;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--secondary-color);
+    }
+    
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    
+    .nav-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: var(--primary-color);
+      margin: 2px 0;
+      transition: var(--transition);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #1A237E 0%, #303F9F 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: var(--white);
+      padding: 8rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-waves {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background-repeat: repeat-x;
+      animation: wave 20s linear infinite;
+    }
+
+    .hero-wave-1 {
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z" fill="rgba(255,255,255,0.1)"/></svg>');
+      background-size: 1200px 100px;
+      z-index: 2;
+    }
+
+    .hero-wave-2 {
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: 1200px 100px;
+      animation-delay: -5s;
+      animation-duration: 25s;
+      z-index: 1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .hero-title {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+      font-weight: 700;
+      animation: fadeInDown 1s ease-out;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.3s;
+      animation-fill-mode: both;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-item {
+      text-align: center;
+      animation: fadeInUp 0.5s ease-out forwards;
+      opacity: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .stat-item:nth-child(1) { animation-delay: 0.1s; }
+    .stat-item:nth-child(2) { animation-delay: 0.2s; }
+    .stat-item:nth-child(3) { animation-delay: 0.3s; }
+    .stat-item:nth-child(4) { animation-delay: 0.4s; }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Section Titles */
+    .section-title-container {
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title {
+      font-size: 2.25rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      animation: fadeInLeft 1s ease-out;
+    }
+    
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-top: 1rem;
+      animation: fadeInUp 0.8s ease-out 0.2s;
+      animation-fill-mode: both;
+    }
+    
+    /* Department Head Section */
+    .department-head {
+      padding: 5rem 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    
+    /* Flip Card Styles */
+    .flip-card-container {
+      perspective: 1000px;
+      margin: 0 auto;
+      max-width: 400px;
+      height: 500px;
+      cursor: pointer;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .flip-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: var(--border-radius);
+    }
+    
+    .flip-card-container:hover .flip-card {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .flip-card.flipped {
+      transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+    
+    .flip-card-front {
+      background-color: var(--white);
+    }
+    
+    .flip-card-back {
+      background: linear-gradient(135deg, #1A237E 0%, #303F9F 100%);
+      color: var(--white);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .head-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .flip-card-front:hover .head-image {
+      transform: scale(1.05);
+    }
+    
+    .head-info {
+      padding: 2rem;
+    }
+    
+    .head-name {
+      font-size: 1.75rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    
+    .head-title {
+      font-size: 1.1rem;
+      color: var(--secondary-color);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    
+    .head-bio {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .head-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+      align-items: center;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    
+    .contact-item i {
+      color: var(--secondary-color);
+      margin-right: 0.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    .email-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: var(--transition);
+      margin-top: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .email-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+      z-index: -1;
+    }
+    
+    .email-btn:hover::before {
+      width: 100%;
+    }
+    
+    .email-btn:hover {
+      border-color: var(--secondary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .email-btn i {
+      margin-right: 0.5rem;
+    }
+    
+    /* Faculty Members Section */
+    .faculty-members {
+      padding: 5rem 0;
+      background-color: rgba(245, 247, 250, 0.9);
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .member-flip-card {
+      perspective: 1000px;
+      height: 400px;
+      cursor: pointer;
+      animation: fadeInUp 0.8s ease-out;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+    
+    .member-flip-card:nth-child(1) { animation-delay: 0.1s; }
+    .member-flip-card:nth-child(2) { animation-delay: 0.2s; }
+    .member-flip-card:nth-child(3) { animation-delay: 0.3s; }
+    .member-flip-card:nth-child(4) { animation-delay: 0.4s; }
+    .member-flip-card:nth-child(5) { animation-delay: 0.5s; }
+    .member-flip-card:nth-child(6) { animation-delay: 0.6s; }
+    
+    .member-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: var(--border-radius);
+    }
+    
+    .member-flip-card:hover .member-card {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .member-card.flipped {
+      transform: rotateY(180deg);
+    }
+    
+    .member-front, .member-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+    
+    .member-front {
+      background-color: var(--white);
+    }
+    
+    .member-back {
+      background: linear-gradient(135deg, #1A237E 0%, #303F9F 100%);
+      color: var(--white);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .member-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .member-front:hover .member-image {
+      transform: scale(1.05);
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+    }
+    
+    .member-name {
+      font-size: 1.25rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    
+    .member-title {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    
+    .member-bio {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .member-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    
+    .member-contact a {
+      color: var(--white);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .member-contact a i {
+      color: var(--secondary-color);
+      margin-right: 0.5rem;
+    }
+    
+    .member-contact a:hover {
+      color: var(--secondary-color);
+    }
+    
+    /* Footer */
+    .footer {
+      background: linear-gradient(135deg, #1A237E 0%, #303F9F 100%);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-title {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+    
+    .footer-section:hover .footer-title::after {
+      width: 80px;
+    }
+    
+    .footer-section p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+      padding-left: 5px;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--secondary-color);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+      text-decoration: none;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+      animation: pulse 2s infinite;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    /* Cursor Effect */
+    .cursor-effect {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: rgba(193, 39, 45, 0.5);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: width 0.3s, height 0.3s, background-color 0.3s;
+      mix-blend-mode: difference;
+    }
+
+    .cursor-effect.active {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(193, 39, 45, 0.2);
+    }
+
+    .cursor-dot {
+      position: fixed;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--secondary-color);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 10000;
+      transition: transform 0.1s;
+    }
+    
+    /* Flip Card Indicator */
+    .flip-card-container::after, .member-flip-card::after {
+      content: 'Click to flip';
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+    }
+
+    .flip-card-container:hover::after, .member-flip-card:hover::after {
+      opacity: 1;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.25rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      
+      .nav-links li {
+        margin: 1rem 0;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .section-title {
+        font-size: 1.75rem;
+      }
+      
+      .head-name {
+        font-size: 1.5rem;
+      }
+      
+      .members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      .cursor-effect, .cursor-dot {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 1.75rem;
+      }
+      
+      .members-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .member-flip-card {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .stat-item {
+        padding: 1rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Interactive Background -->
+  <div class="interactive-bg">
+    <div class="bg-pattern"></div>
+    <div class="bg-shapes">
+      <div class="bg-shape"></div>
+      <div class="bg-shape"></div>
+      <div class="bg-shape"></div>
+      <div class="bg-shape"></div>
+      <div class="bg-shape"></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor Effect -->
+  <div class="cursor-effect" id="cursorEffect"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="../index.html" class="logo">
+          <img src="../images/logo.png" alt="College Logo">
+          <div class="logo-text">
+            <span class="logo-title">Educational Institution</span>
+            <span class="logo-subtitle">Education | Discipline | Morality</span>
+          </div>
+        </a>
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="science.html">Faculty of Science</a></li>
+          <li><a href="#" class="active">Physics Department</a></li>
+          <li><a href="#faculty">Faculty Members</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="particles-container" id="particles"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Department of Physics</h1>
+        <p class="hero-subtitle">Exploring the fundamental laws of the universe through research and education</p>
+        
+        <!-- Stats Section -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number" data-count="20">20+</div>
+            <div class="stat-label">FACULTY MEMBERS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="500">500+</div>
+            <div class="stat-label">STUDENTS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="15">15</div>
+            <div class="stat-label">RESEARCH LABS</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="50">50+</div>
+            <div class="stat-label">PUBLICATIONS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-waves">
+      <div class="hero-wave hero-wave-1"></div>
+      <div class="hero-wave hero-wave-2"></div>
+    </div>
+  </section>
+
+  <!-- Department Head Section -->
+  <section class="department-head">
+    <div class="container">
+      <div class="section-title-container">
+        <h2 class="section-title">Department Head</h2>
+        <p class="section-subtitle">Leading our department with vision and excellence</p>
+      </div>
+      
+      <div class="flip-card-container">
+        <div class="flip-card" id="headFlipCard">
+          <div class="flip-card-front">
+            <img src="me.jpg" alt="Dr. Robert Chen" class="head-image">
+          </div>
+          <div class="flip-card-back">
+            <h3 class="head-name">Dr. Robert Chen</h3>
+            <p class="head-title">Professor and Head of Department</p>
+            <div class="head-bio">
+              <p>Dr. Robert Chen has been leading the Department of Physics since 2018. He received his Ph.D. in Theoretical Physics from MIT and has over 20 years of experience in research and academia.</p>
+              <p>His research focuses on quantum field theory and its applications to particle physics.</p>
+            </div>
+            <div class="head-contact">
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Room 301, Physics Building</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+1 (555) 123-4567</span>
+              </div>
+            </div>
+            <a href="mailto:robert.chen@education.edu" class="email-btn">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Members Section -->
+  <section id="faculty" class="faculty-members">
+    <div class="container">
+      <div class="section-title-container">
+        <h2 class="section-title">Faculty Members</h2>
+        <p class="section-subtitle">Our distinguished team of educators and researchers</p>
+      </div>
+      
+      <div class="members-grid">
+        <!-- Faculty Member 1 -->
+        <div class="member-flip-card">
+          <div class="member-card">
+            <div class="member-front">
+              <img src="https://via.placeholder.com/400x500" alt="Dr. Sarah Johnson" class="member-image">
+            </div>
+            <div class="member-back">
+              <h3 class="member-name">Dr. Sarah Johnson</h3>
+              <p class="member-title">Associate Professor</p>
+              <p class="member-bio">Specializes in Astrophysics and Cosmology. Research focuses on dark matter and the early universe.</p>
+              <div class="member-contact">
+                <a href="mailto:sarah.johnson@education.edu"><i class="fas fa-envelope"></i> sarah.johnson@education.edu</a>
+                <a href="tel:+15551234568"><i class="fas fa-phone"></i> +1 (555) 123-4568</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Faculty Member 2 -->
+        <div class="member-flip-card">
+          <div class="member-card">
+            <div class="member-front">
+              <img src="https://via.placeholder.com/400x500" alt="Dr. Michael Wong" class="member-image">
+            </div>
+            <div class="member-back">
+              <h3 class="member-name">Dr. Michael Wong</h3>
+              <p class="member-title">Professor</p>
+              <p class="member-bio">Expert in Quantum Physics. Leading research on quantum computing and quantum information theory.</p>
+              <div class="member-contact">
+                <a href="mailto:michael.wong@education.edu"><i class="fas fa-envelope"></i> michael.wong@education.edu</a>
+                <a href="tel:+15551234569"><i class="fas fa-phone"></i> +1 (555) 123-4569</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Faculty Member 3 -->
+        <div class="member-flip-card">
+          <div class="member-card">
+            <div class="member-front">
+              <img src="https://via.placeholder.com/400x500" alt="Dr. Emily Rodriguez" class="member-image">
+            </div>
+            <div class="member-back">
+              <h3 class="member-name">Dr. Emily Rodriguez</h3>
+              <p class="member-title">Assistant Professor</p>
+              <p class="member-bio">Specializes in Condensed Matter Physics. Research on superconductivity and novel materials.</p>
+              <div class="member-contact">
+                <a href="mailto:emily.rodriguez@education.edu"><i class="fas fa-envelope"></i> emily.rodriguez@education.edu</a>
+                <a href="tel:+15551234570"><i class="fas fa-phone"></i> +1 (555) 123-4570</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Faculty Member 4 -->
+        <div class="member-flip-card">
+          <div class="member-card">
+            <div class="member-front">
+              <img src="https://via.placeholder.com/400x500" alt="Dr. James Wilson" class="member-image">
+            </div>
+            <div class="member-back">
+              <h3 class="member-name">Dr. James Wilson</h3>
+              <p class="member-title">Professor</p>
+              <p class="member-bio">Expert in Nuclear Physics. Research focuses on nuclear structure and reactions.</p>
+              <div class="member-contact">
+                <a href="mailto:james.wilson@education.edu"><i class="fas fa-envelope"></i> james.wilson@education.edu</a>
+                <a href="tel:+15551234571"><i class="fas fa-phone"></i> +1 (555) 123-4571</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Faculty Member 5 -->
+        <div class="member-flip-card">
+          <div class="member-card">
+            <div class="member-front">
+              <img src="https://via.placeholder.com/400x500" alt="Dr. Lisa Chen" class="member-image">
+            </div>
+            <div class="member-back">
+              <h3 class="member-name">Dr. Lisa Chen</h3>
+              <p class="member-title">Associate Professor</p>
+              <p class="member-bio">Specializes in Particle Physics. Research on the Standard Model and beyond.</p>
+              <div class="member-contact">
+                <a href="mailto:lisa.chen@education.edu"><i class="fas fa-envelope"></i> lisa.chen@education.edu</a>
+                <a href="tel:+15551234572"><i class="fas fa-phone"></i> +1 (555) 123-4572</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Faculty Member 6 -->
+        <div class="member-flip-card">
+          <div class="member-card">
+            <div class="member-front">
+              <img src="https://via.placeholder.com/400x500" alt="Dr. David Kim" class="member-image">
+            </div>
+            <div class="member-back">
+              <h3 class="member-name">Dr. David Kim</h3>
+              <p class="member-title">Assistant Professor</p>
+              <p class="member-bio">Expert in Computational Physics. Research on simulations and modeling of complex systems.</p>
+              <div class="member-contact">
+                <a href="mailto:david.kim@education.edu"><i class="fas fa-envelope"></i> david.kim@education.edu</a>
+                <a href="tel:+15551234573"><i class="fas fa-phone"></i> +1 (555) 123-4573</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Department of Physics</h3>
+          <p>Exploring the fundamental laws of the universe through research and education since 1965.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="science.html">Faculty of Science</a></li>
+            <li><a href="#faculty">Faculty Members</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Programs</h3>
+          <ul class="footer-links">
+            <li><a href="#">Undergraduate Programs</a></li>
+            <li><a href="#">Graduate Programs</a></li>
+            <li><a href="#">Research Opportunities</a></li>
+            <li><a href="#">Scholarships</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-title">Contact Us</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt"></i> Physics Building, Main Campus</li>
+            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+            <li><i class="fas fa-envelope"></i> physics@education.edu</li>
+            <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Department of Physics, Educational Institution. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize variables
+      const header = document.querySelector('.header');
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+      const backToTopBtn = document.getElementById('backToTop');
+      const headFlipCard = document.getElementById('headFlipCard');
+      const memberCards = document.querySelectorAll('.member-card');
+      const cursorEffect = document.getElementById('cursorEffect');
+      const cursorDot = document.getElementById('cursorDot');
+      
+      // Create particles for hero section
+      createParticles();
+      
+      // Create atom orbits
+      createAtomOrbits();
+      
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Mobile navigation toggle
+      if (navToggle) {
+        navToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          navToggle.classList.toggle('active');
+        });
+      }
+      
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('active');
+          if (navToggle) navToggle.classList.remove('active');
+        });
+      });
+      
+      // Back to top button
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('active');
+        } else {
+          backToTopBtn.classList.remove('active');
+        }
+      });
+      
+      backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          if (this.getAttribute('href') !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+      
+      // Flip card functionality for department head
+      headFlipCard.addEventListener('click', function() {
+        this.classList.toggle('flipped');
+      });
+      
+      // Flip card functionality for faculty members
+      memberCards.forEach(card => {
+        card.addEventListener('click', function() {
+          this.classList.toggle('flipped');
+        });
+      });
+      
+      // Custom cursor effect
+      if (window.innerWidth > 768) {
+        document.addEventListener('mousemove', function(e) {
+          // Main cursor effect follows with delay
+          setTimeout(function() {
+            cursorEffect.style.left = e.clientX + 'px';
+            cursorEffect.style.top = e.clientY + 'px';
+          }, 100);
+          
+          // Dot follows cursor exactly
+          cursorDot.style.left = e.clientX + 'px';
+          cursorDot.style.top = e.clientY + 'px';
+        });
+        
+        // Change cursor effect on interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .flip-card-container, .member-flip-card');
+        
+        interactiveElements.forEach(element => {
+          element.addEventListener('mouseenter', function() {
+            cursorEffect.classList.add('active');
+          });
+          
+          element.addEventListener('mouseleave', function() {
+            cursorEffect.classList.remove('active');
+          });
+        });
+      }
+      
+      // Create particles for hero section
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        if (!particlesContainer) return;
+        
+        const particleCount = 40;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          
+          // Random size between 2px and 4px
+          const size = Math.random() * 3 + 2;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          
+          // Random position
+          const posX = Math.random() * 100;
+          const posY = Math.random() * 100;
+          particle.style.left = `${posX}%`;
+          particle.style.top = `${posY}%`;
+          
+          // Random opacity between 0.1 and 0.5
+          const opacity = Math.random() * 0.4 + 0.1;
+          particle.style.opacity = opacity;
+          
+          // Random animation delay
+          const delay = Math.random() * 5;
+          particle.style.animationDelay = `${delay}s`;
+          
+          particlesContainer.appendChild(particle);
+        }
+
+        // Make particles interactive with mouse movement
+        document.addEventListener('mousemove', function(e) {
+          if (e.target.closest('.hero-section')) {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            const heroRect = document.querySelector('.hero-section').getBoundingClientRect();
+            
+            document.querySelectorAll('.particle').forEach(particle => {
+              const particleRect = particle.getBoundingClientRect();
+              const particleCenterX = particleRect.left + particleRect.width / 2;
+              const particleCenterY = particleRect.top + particleRect.height / 2;
+              
+              const distX = mouseX - particleCenterX;
+              const distY = mouseY - particleCenterY;
+              const distance = Math.sqrt(distX * distX + distY * distY);
+              
+              if (distance < 100) {
+                const moveX = distX * 0.1;
+                const moveY = distY * 0.1;
+                particle.style.transform = `translate(${moveX}px, ${moveY}px)`;
+              } else {
+                particle.style.transform = 'translate(0, 0)';
+              }
+            });
+          }
+        });
+      }
+      
+      // Create atom orbits for hero section
+      function createAtomOrbits() {
+        const heroSection = document.querySelector('.hero-section');
+        if (!heroSection) return;
+        
+        // Create 3 atom orbits
+        for (let i = 0; i < 3; i++) {
+          const orbit = document.createElement('div');
+          orbit.classList.add('atom-orbit');
+          
+          // Set size and position
+          const size = [150, 200, 250][i];
+          orbit.style.width = `${size}px`;
+          orbit.style.height = `${size}px`;
+          
+          // Position orbits
+          if (i === 0) {
+            orbit.style.top = '20%';
+            orbit.style.left = '15%';
+          } else if (i === 1) {
+            orbit.style.top = '60%';
+            orbit.style.left = '60%';
+          } else {
+            orbit.style.top = '30%';
+            orbit.style.right = '10%';
+          }
+          
+          // Add electron
+          const electron = document.createElement('div');
+          electron.classList.add('electron');
+          orbit.appendChild(electron);
+          
+          // Add to hero section
+          heroSection.appendChild(orbit);
+        }
+      }
+      
+      // Animate elements when they come into view
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.member-flip-card');
+        
+        elements.forEach(element => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementPosition < windowHeight * 0.9) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+          }
+        });
+      };
+      
+      // Initial check for elements in viewport
+      animateOnScroll();
+      
+      // Check for elements in viewport on scroll
+      window.addEventListener('scroll', animateOnScroll);
+
+      // Animate stats counter
+      const stats = document.querySelectorAll('.stat-number');
+      stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-count'));
+        let count = 0;
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+
+        const updateCount = () => {
+          if (count < target) {
+            count += increment;
+            stat.textContent = Math.ceil(count) + (stat.textContent.includes('+') ? '+' : '');
+            requestAnimationFrame(updateCount);
+          } else {
+            stat.textContent = target + (stat.textContent.includes('+') ? '+' : '');
+          }
+        };
+
+        // Start animation when stats are in view
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              updateCount();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        observer.observe(stat);
+      });
+    });
+  </script>
+</body>
+</html>

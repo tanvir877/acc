@@ -1700,7 +1700,7 @@
   font-size: clamp(0.8rem, 2vw, 0.9rem); /* Responsive font size */
   opacity: 0.9;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  /* -webkit-line-clamp: 3; */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1785,7 +1785,7 @@
   margin: 0;
   line-height: 1.4;
   display:-webkit-box;
-  -webkit-line-clamp: 2;
+  /* -webkit-line-clamp: 2; */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
